@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HypeCartel — Premium Modern Store in Pakistan</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#121212',
+                        cardDark: '#1a1a1a',
+                        surface: '#242424',
+                        tealAccent: '#0d9488',
+                        tealHover: '#0f766e',
+                        tealLight: '#2dd4bf',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for clean iconography -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #121212;
+            color: #f3f4f6;
+        }
+        /* Custom scrollbar for dark theme */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #121212;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2a2a2a;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0d9488;
+        }
+    </style>
+</head>
+<body class="bg-dark text-gray-100 antialiased selection:bg-tealAccent selection:text-white">
+
+    <!-- HEADER -->
+    <header class="sticky top-0 z-40 bg-dark/90 backdrop-blur-md border-b border-gray-800 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo -->
+            <div class="flex items-center space-x-3">
+                <a href="#home" class="flex items-center space-x-2 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-tealAccent to-teal-700 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-teal-900/20 group-hover:scale-105 transition-transform">
+                        H
+                    </div>
+                    <span class="text-xl sm:text-2xl font-bold tracking-tight text-white">Hype<span class="text-tealAccent">Cartel</span></span>
+                </a>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
+                <a href="#home" class="hover:text-tealAccent transition-colors">Home</a>
+                <a href="#shop" class="hover:text-tealAccent transition-colors">Shop</a>
+                <a href="#categories" class="hover:text-tealAccent transition-colors">Categories</a>
+                <a href="#trending" class="hover:text-tealAccent transition-colors">Trending</a>
+                <a href="#about" class="hover:text-tealAccent transition-colors">About</a>
+            </nav>
+
+            <!-- Actions & Search & Cart -->
+            <div class="flex items-center space-x-4">
+                <!-- Search Toggle / Bar -->
+                <div class="hidden lg:flex items-center bg-surface border border-gray-800 rounded-full px-4 py-2 text-sm text-gray-400 focus-within:border-tealAccent transition-colors">
+                    <i class="fa-solid fa-magnifying-glass mr-2 text-gray-500"></i>
+                    <input type="text" id="searchInput" placeholder="Search products..." class="bg-transparent border-none outline-none text-white placeholder-gray-500 w-40 focus:w-60 transition-all">
+                </div>
+
+                <!-- Wishlist Icon -->
+                <button aria-label="Wishlist" class="relative p-2 text-gray-300 hover:text-tealAccent transition-colors hidden sm:block">
+                    <i class="fa-regular fa-heart text-xl"></i>
+                    <span id="wishlistCount" class="absolute top-1 right-1 bg-tealAccent text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+                </button>
+
+                <!-- Shopping Cart Toggle -->
+                <button id="cartToggleBtn" aria-label="Shopping Cart" class="relative p-2.5 bg-surface hover:bg-gray-800 border border-gray-800 rounded-xl text-gray-200 hover:text-tealAccent transition-all flex items-center space-x-2">
+                    <i class="fa-solid fa-bag-shopping text-lg"></i>
+                    <span id="cartCountBadge" class="bg-tealAccent text-white text-xs font-semibold px-2 py-0.5 rounded-full">0</span>
+                </button>
+
+                <!-- Mobile Hamburger Button -->
+                <button id="mobileMenuBtn" aria-label="Open Mobile Menu" class="md:hidden p-2 text-gray-300 hover:text-white focus:outline-none">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobileMenu" class="hidden md:hidden bg-cardDark border-b border-gray-800 px-6 py-4 space-y-4">
+            <div class="flex items-center bg-surface border border-gray-800 rounded-xl px-4 py-2.5 text-sm text-gray-400">
+                <i class="fa-solid fa-magnifying-glass mr-2 text-gray-500"></i>
+                <input type="text" placeholder="Search products..." class="bg-transparent border-none outline-none text-white placeholder-gray-500 w-full">
+            </div>
+            <nav class="flex flex-col space-y-3 font-medium text-gray-300">
+                <a href="#home" class="mobile-nav-link hover:text-tealAccent py-1">Home</a>
+                <a href="#shop" class="mobile-nav-link hover:text-tealAccent py-1">Shop</a>
+                <a href="#categories" class="mobile-nav-link hover:text-tealAccent py-1">Categories</a>
+                <a href="#trending" class="mobile-nav-link hover:text-tealAccent py-1">Trending</a>
+                <a href="#about" class="mobile-nav-link hover:text-tealAccent py-1">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative overflow-hidden pt-12 pb-20 lg:pt-20 lg:pb-28 border-b border-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Text Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 bg-surface border border-gray-800 px-3.5 py-1.5 rounded-full text-xs font-medium text-tealLight">
+                        <i class="fa-solid fa-bolt text-tealAccent"></i>
+                        <span>Curated Smart Living & Essentials</span>
+                    </div>
+                    <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                        Discover Products <br class="hidden sm:inline"><span class="text-transparent bg-clip-text bg-gradient-to-r from-tealAccent to-tealLight">Worth Having.</span>
+                    </h1>
+                    <p class="text-lg text-gray-400 max-w-xl mx-auto lg:mx-0">
+                        Trending finds, everyday essentials, and smart products — carefully selected for you with reliable delivery across Pakistan.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4 pt-4">
+                        <a href="#shop" class="w-full sm:w-auto px-8 py-4 bg-tealAccent hover:bg-tealHover text-white font-semibold rounded-xl shadow-lg shadow-teal-900/30 transition-all flex items-center justify-center space-x-2">
+                            <span>Shop Now</span>
+                            <i class="fa-solid fa-arrow-right text-sm"></i>
+                        </a>
+                        <a href="#categories" class="w-full sm:w-auto px-8 py-4 bg-surface hover:bg-gray-800 border border-gray-800 text-gray-200 font-semibold rounded-xl transition-all flex items-center justify-center">
+                            Explore Products
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Visual Collage -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative w-full h-[400px] sm:h-[450px] rounded-3xl bg-gradient-to-br from-cardDark to-surface border border-gray-800 p-6 flex flex-col justify-between overflow-hidden shadow-2xl">
+                        <!-- Decorative glow -->
+                        <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-tealAccent/10 rounded-full blur-3xl pointer-events-none"></div>
+                        
+                        <div class="flex justify-between items-center z-10">
+                            <span class="text-xs uppercase tracking-widest text-tealAccent font-bold">Featured Drop</span>
+                            <span class="bg-tealAccent/20 text-tealLight text-xs px-2.5 py-1 rounded-full font-semibold">In Stock</span>
+                        </div>
+
+                        <!-- Central product showcase image simulation -->
+                        <div class="my-auto text-center z-10 py-6">
+                            <img src="https://placehold.co/400x300/1a1a1a/2dd4bf?text=Smart+Portable+Blender" alt="Smart Portable Blender" class="mx-auto rounded-2xl object-cover shadow-lg border border-gray-800 max-h-56 hover:scale-105 transition-transform duration-500">
+                        </div>
+
+                        <div class="z-10 bg-dark/80 backdrop-blur-md p-4 rounded-2xl border border-gray-800 flex items-center justify-between">
+                            <div>
+                                <h4 class="font-semibold text-white text-sm">Portable Blender Pro</h4>
+                                <p class="text-xs text-gray-400">USB Rechargeable • 4000mAh</p>
+                            </div>
+                            <span class="text-tealLight font-bold text-base">Rs. 4,499</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: RECENTLY VIEWED / FLASH DEALS BANNER -->
+    <section class="py-12 bg-dark border-b border-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-r from-cardDark via-surface to-cardDark border border-gray-800 rounded-3xl p-8 sm:p-10 flex flex-col lg:flex-row items-center justify-between shadow-xl">
+                <div class="space-y-3 text-center lg:text-left mb-6 lg:mb-0">
+                    <div class="inline-flex items-center space-x-2 bg-tealAccent/10 px-3 py-1 rounded-full text-xs font-bold text-tealLight">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                        <span>Limited Time Offer</span>
+                    </div>
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-white">Get Extra 10% Off Your First Order</h3>
+                    <p class="text-sm text-gray-400 max-w-lg">Use code <span class="text-tealLight font-mono font-bold">HYPE10</span> at checkout when paying via JazzCash or Easypaisa.</p>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="#shop" class="px-6 py-3.5 bg-tealAccent hover:bg-tealHover text-white font-semibold rounded-xl text-sm transition-all shadow-lg shadow-teal-900/30 flex items-center space-x-2">
+                        <span>Claim Discount</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST SECTION -->
+    <section class="border-b border-gray-900 bg-cardDark/50 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div class="flex flex-col items-center p-4">
+                    <div class="w-12 h-12 rounded-xl bg-surface border border-gray-800 flex items-center justify-center text-tealAccent mb-3 text-lg">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <h3 class="font-semibold text-white text-sm">Quality Products</h3>
+                    <p class="text-xs text-gray-400 mt-1">Sourced with rigorous testing</p>
+                </div>
+                <div class="flex flex-col items-center p-4">
+                    <div class="w-12 h-12 rounded-xl bg-surface border border-gray-800 flex items-center justify-center text-tealAccent mb-3 text-lg">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+                    <h3 class="font-semibold text-white text-sm">Easy Ordering</h3>
+                    <p class="text-xs text-gray-400 mt-1">Seamless checkout experience</p>
+                </div>
+                <div class="flex flex-col items-center p-4">
+                    <div class="w-12 h-12 rounded-xl bg-surface border border-gray-800 flex items-center justify-center text-tealAccent mb-3 text-lg">
+                        <i class="fa-solid fa-truck-fast"></i>
+                    </div>
+                    <h3 class="font-semibold text-white text-sm">Delivery Across Pakistan</h3>
+                    <p class="text-xs text-gray-400 mt-1">Secure and timely shipping</p>
+                </div>
+                <div class="flex flex-col items-center p-4">
+                    <div class="w-12 h-12 rounded-xl bg-surface border border-gray-800 flex items-center justify-center text-tealAccent mb-3 text-lg">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="font-semibold text-white text-sm">Online Payments</h3>
+                    <p class="text-xs text-gray-400 mt-1">JazzCash, Easypaisa & Bank</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATEGORIES SECTION -->
+    <section id="categories" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10">
+            <div>
+                <span class="text-xs uppercase tracking-widest text-tealAccent font-bold">Discover By Department</span>
+                <h2 class="text-3xl font-bold text-white mt-1">Product Categories</h2>
+            </div>
+            <p class="text-gray-400 text-sm mt-2 md:mt-0 max-w-md">Browse our curated collections designed for convenience, productivity, and modern lifestyle.</p>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+            <!-- Category 1 -->
+            <div onclick="filterByCategory('Electronics')" class="group cursor-pointer bg-cardDark hover:bg-surface border border-gray-800 hover:border-tealAccent/50 p-6 rounded-2xl text-center transition-all duration-300">
+                <div class="w-12 h-12 mx-auto rounded-xl bg-surface group-hover:bg-tealAccent/10 flex items-center justify-center text-tealAccent text-xl mb-3 transition-colors">
+                    <i class="fa-solid fa-plug"></i>
+                </div>
+                <h3 class="font-semibold text-white text-sm group-hover:text-tealLight transition-colors">Electronics</h3>
+                <span class="text-[11px] text-gray-500 mt-1 block">Gadgets & Tech</span>
+            </div>
+            <!-- Category 2 -->
+            <div onclick="filterByCategory('Home & Kitchen')" class="group cursor-pointer bg-cardDark hover:bg-surface border border-gray-800 hover:border-tealAccent/50 p-6 rounded-2xl text-center transition-all duration-300">
+                <div class="w-12 h-12 mx-auto rounded-xl bg-surface group-hover:bg-tealAccent/10 flex items-center justify-center text-tealAccent text-xl mb-3 transition-colors">
+                    <i class="fa-solid fa-house-chimney"></i>
+                </div>
+                <h3 class="font-semibold text-white text-sm group-hover:text-tealLight transition-colors">Home & Kitchen</h3>
+                <span class="text-[11px] text-gray-500 mt-1 block">Smart Living</span>
+            </div>
+            <!-- Category 3 -->
+            <div onclick="filterByCategory('Travel')" class="group cursor-pointer bg-cardDark hover:bg-surface border border-gray-800 hover:border-tealAccent/50 p-6 rounded-2xl text-center transition-all duration-300">
+                <div class="w-12 h-12 mx-auto rounded-xl bg-surface group-hover:bg-tealAccent/10 flex items-center justify-center text-tealAccent text-xl mb-3 transition-colors">
+                    <i class="fa-solid fa-plane"></i>
+                </div>
+                <h3 class="font-semibold text-white text-sm group-hover:text-tealLight transition-colors">Travel</h3>
+                <span class="text-[11px] text-gray-500 mt-1 block">On The Go</span>
+            </div>
+            <!-- Category 4 -->
+            <div onclick="filterByCategory('Lifestyle')" class="group cursor-pointer bg-cardDark hover:bg-surface border border-gray-800 hover:border-tealAccent/50 p-6 rounded-2xl text-center transition-all duration-300">
+                <div class="w-12 h-12 mx-auto rounded-xl bg-surface group-hover:bg-tealAccent/10 flex items-center justify-center text-tealAccent text-xl mb-3 transition-colors">
+                    <i class="fa-solid fa-compass"></i>
+                </div>
+                <h3 class="font-semibold text-white text-sm group-hover:text-tealLight transition-colors">Lifestyle</h3>
+                <span class="text-[11px] text-gray-500 mt-1 block">Daily Utilities</span>
+            </div>
+            <!-- Category 5 -->
+            <div onclick="filterByCategory('Accessories')" class="group cursor-pointer bg-cardDark hover:bg-surface border border-gray-800 hover:border-tealAccent/50 p-6 rounded-2xl text-center transition-all duration-300">
+                <div class="w-12 h-12 mx-auto rounded-xl bg-surface group-hover:bg-tealAccent/10 flex items-center justify-center text-tealAccent text-xl mb-3 transition-colors">
+                    <i class="fa-solid fa-glasses"></i>
+                </div>
+                <h3 class="font-semibold text-white text-sm group-hover:text-tealLight transition-colors">Accessories</h3>
+                <span class="text-[11px] text-gray-500 mt-1 block">Add-ons</span>
+            </div>
+            <!-- Category 6 -->
+            <div onclick="filterByCategory('Trending')" class="group cursor-pointer bg-cardDark hover:bg-surface border border-gray-800 hover:border-tealAccent/50 p-6 rounded-2xl text-center transition-all duration-300">
+                <div class="w-12 h-12 mx-auto rounded-xl bg-surface group-hover:bg-tealAccent/10 flex items-center justify-center text-tealAccent text-xl mb-3 transition-colors">
+                    <i class="fa-solid fa-fire"></i>
+                </div>
+                <h3 class="font-semibold text-white text-sm group-hover:text-tealLight transition-colors">Trending</h3>
+                <span class="text-[11px] text-gray-500 mt-1 block">Best Sellers</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHOP SECTION -->
+    <section id="shop" class="py-16 bg-cardDark/30 border-t border-b border-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10">
+                <div>
+                    <span class="text-xs uppercase tracking-widest text-tealAccent font-bold">Catalog</span>
+                    <h2 class="text-3xl font-bold text-white mt-1">Featured Products</h2>
+                </div>
+                <!-- Category Filter Buttons -->
+                <div class="flex flex-wrap gap-2 mt-4 sm:mt-0" id="filterButtons">
+                    <button onclick="filterByCategory('All')" class="category-btn px-4 py-2 bg-tealAccent text-white rounded-xl text-xs font-semibold transition-all shadow-sm">All Items</button>
+                    <button onclick="filterByCategory('Electronics')" class="category-btn px-4 py-2 bg-surface hover:bg-gray-800 text-gray-300 rounded-xl text-xs font-semibold transition-all border border-gray-800">Electronics</button>
+                    <button onclick="filterByCategory('Home & Kitchen')" class="category-btn px-4 py-2 bg-surface hover:bg-gray-800 text-gray-300 rounded-xl text-xs font-semibold transition-all border border-gray-800">Home & Kitchen</button>
+                    <button onclick="filterByCategory('Travel')" class="category-btn px-4 py-2 bg-surface hover:bg-gray-800 text-gray-300 rounded-xl text-xs font-semibold transition-all border border-gray-800">Travel</button>
+                </div>
+            </div>
+
+            <!-- Product Grid Container -->
+            <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Products injected via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- TRENDING NOW SECTION -->
+    <section id="trending" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between mb-10">
+            <div>
+                <span class="text-xs uppercase tracking-widest text-tealAccent font-bold">Must Haves</span>
+                <h2 class="text-3xl font-bold text-white mt-1">Trending Now</h2>
+            </div>
+            <a href="#shop" class="text-tealLight hover:underline text-sm font-semibold flex items-center space-x-1">
+                <span>View All</span>
+                <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+        </div>
+
+        <div id="trendingGrid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Trending items injected via JS -->
+        </div>
+    </section>
+
+    <!-- WHY HYPECARTEL SECTION -->
+    <section id="about" class="py-20 bg-cardDark border-t border-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs uppercase tracking-widest text-tealAccent font-bold">Our Commitment</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2">Why Shop HypeCartel?</h2>
+                <p class="text-gray-400 text-sm mt-3">We focus on quality, transparency, and a frictionless shopping experience tailored for customers across Pakistan.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Benefit 1 -->
+                <div class="bg-surface border border-gray-800 p-8 rounded-3xl hover:border-tealAccent/40 transition-all duration-300">
+                    <div class="w-14 h-14 rounded-2xl bg-tealAccent/10 text-tealAccent flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Carefully Selected Products</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">Every item in our store is handpicked for build quality, practicality, and everyday utility.</p>
+                </div>
+                <!-- Benefit 2 -->
+                <div class="bg-surface border border-gray-800 p-8 rounded-3xl hover:border-tealAccent/40 transition-all duration-300">
+                    <div class="w-14 h-14 rounded-2xl bg-tealAccent/10 text-tealAccent flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-mobile-screen"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Simple Online Ordering</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">An intuitive checkout flow designed so you can place your order in less than a minute.</p>
+                </div>
+                <!-- Benefit 3 -->
+                <div class="bg-surface border border-gray-800 p-8 rounded-3xl hover:border-tealAccent/40 transition-all duration-300">
+                    <div class="w-14 h-14 rounded-2xl bg-tealAccent/10 text-tealAccent flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-wallet"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Convenient Online Payments</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">Secure digital payment integration supporting JazzCash, Easypaisa, and direct Bank Transfers.</p>
+                </div>
+                <!-- Benefit 4 -->
+                <div class="bg-surface border border-gray-800 p-8 rounded-3xl hover:border-tealAccent/40 transition-all duration-300">
+                    <div class="w-14 h-14 rounded-2xl bg-tealAccent/10 text-tealAccent flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-earth-americas"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Delivery Across Pakistan</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">Fast and reliable nationwide couriers bringing your favorite products directly to your doorstep.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHOPPING CART DRAWER -->
+    <div id="cartOverlay" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden transition-opacity"></div>
+    <div id="cartDrawer" class="fixed top-0 right-0 h-full w-full sm:w-[450px] bg-cardDark border-l border-gray-800 z-50 transform translate-x-full transition-transform duration-300 flex flex-col shadow-2xl">
+        <!-- Cart Header -->
+        <div class="p-6 border-b border-gray-800 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <i class="fa-solid fa-bag-shopping text-tealAccent"></i>
+                <h3 class="font-bold text-white text-lg">Your Cart (<span id="drawerItemCount">0</span>)</h3>
+            </div>
+            <button id="closeCartBtn" aria-label="Close Cart" class="p-2 text-gray-400 hover:text-white rounded-lg hover:bg-surface transition-colors">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+        </div>
+
+        <!-- Cart Items List -->
+        <div id="cartItemsContainer" class="flex-1 overflow-y-auto p-6 space-y-4 divide-y divide-gray-800/50">
+            <!-- Dynamically populated cart items -->
+        </div>
+
+        <!-- Cart Footer -->
+        <div id="cartFooter" class="p-6 border-t border-gray-800 bg-surface/50 space-y-4">
+            <div class="space-y-2 text-sm">
+                <div class="flex justify-between text-gray-400">
+                    <span>Subtotal</span>
+                    <span id="cartSubtotal" class="font-semibold text-white">Rs. 0</span>
+                </div>
+                <div class="flex justify-between text-gray-400">
+                    <span>Estimated Shipping</span>
+                    <span class="text-tealLight">Calculated at checkout</span>
+                </div>
+                <div class="flex justify-between text-base font-bold text-white pt-2 border-t border-gray-800">
+                    <span>Total</span>
+                    <span id="cartTotal" class="text-tealAccent">Rs. 0</span>
+                </div>
+            </div>
+            <button id="proceedToCheckoutBtn" onclick="openCheckoutModal()" class="w-full py-4 bg-tealAccent hover:bg-tealHover text-white font-semibold rounded-xl shadow-lg shadow-teal-900/30 transition-all flex items-center justify-center space-x-2">
+                <span>Proceed to Checkout</span>
+                <i class="fa-solid fa-arrow-right text-sm"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- CHECKOUT MODAL -->
+    <div id="checkoutModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-cardDark border border-gray-800 w-full max-w-2xl rounded-3xl overflow-hidden shadow-2xl my-8">
+            <!-- Modal Header -->
+            <div class="p-6 border-b border-gray-800 flex items-center justify-between">
+                <div>
+                    <h3 class="font-bold text-white text-xl">Secure Checkout</h3>
+                    <p class="text-xs text-gray-400 mt-0.5">Please provide your delivery and payment details</p>
+                </div>
+                <button onclick="closeCheckoutModal()" aria-label="Close Checkout" class="p-2 text-gray-400 hover:text-white rounded-lg hover:bg-surface transition-colors">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Checkout Form & Summary -->
+            <div class="p-6 sm:p-8 max-h-[75vh] overflow-y-auto space-y-8">
+                
+                <!-- Customer Info Form -->
+                <div class="space-y-4">
+                    <h4 class="text-sm font-bold uppercase tracking-wider text-tealAccent">1. Customer Information</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs text-gray-400 mb-1">Full Name *</label>
+                            <input type="text" id="custName" placeholder="Muhammad Ali" class="w-full bg-surface border border-gray-800 rounded-xl px-4 py-3 text-sm text-white focus:border-tealAccent outline-none transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-gray-400 mb-1">Phone Number *</label>
+                            <input type="tel" id="custPhone" placeholder="0300 1234567" class="w-full bg-surface border border-gray-800 rounded-xl px-4 py-3 text-sm text-white focus:border-tealAccent outline-none transition-colors">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs text-gray-400 mb-1">City *</label>
+                            <input type="text" id="custCity" placeholder="Karachi / Lahore / Islamabad" class="w-full bg-surface border border-gray-800 rounded-xl px-4 py-3 text-sm text-white focus:border-tealAccent outline-none transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-gray-400 mb-1">Complete Delivery Address *</label>
+                            <input type="text" id="custAddress" placeholder="House #, Street, Area / Society" class="w-full bg-surface border border-gray-800 rounded-xl px-4 py-3 text-sm text-white focus:border-tealAccent outline-none transition-colors">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Method Section -->
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <h4 class="text-sm font-bold uppercase tracking-wider text-tealAccent">2. Payment Method</h4>
+                        <span class="text-xs text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-full border border-amber-500/20">Online payment required</span>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <!-- JazzCash -->
+                        <label class="payment-card cursor-pointer bg-surface border-2 border-gray-800 hover:border-tealAccent p-4 rounded-2xl flex flex-col items-center text-center transition-all">
+                            <input type="radio" name="paymentMethod" value="JazzCash" class="hidden" onchange="selectPaymentMethod('JazzCash')">
+                            <div class="w-10 h-10 rounded-xl bg-red-500/10 text-red-500 flex items-center justify-center font-bold text-sm mb-2">JC</div>
+                            <span class="font-semibold text-white text-sm">JazzCash</span>
+                            <span class="text-[11px] text-gray-400 mt-0.5">Mobile Wallet</span>
+                        </label>
+                        <!-- Easypaisa -->
+                        <label class="payment-card cursor-pointer bg-surface border-2 border-gray-800 hover:border-tealAccent p-4 rounded-2xl flex flex-col items-center text-center transition-all">
+                            <input type="radio" name="paymentMethod" value="Easypaisa" class="hidden" onchange="selectPaymentMethod('Easypaisa')">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center font-bold text-sm mb-2">EP</div>
+                            <span class="font-semibold text-white text-sm">Easypaisa</span>
+                            <span class="text-[11px] text-gray-400 mt-0.5">Mobile Wallet</span>
+                        </label>
+                        <!-- Bank Transfer -->
+                        <label class="payment-card cursor-pointer bg-surface border-2 border-gray-800 hover:border-tealAccent p-4 rounded-2xl flex flex-col items-center text-center transition-all">
+                            <input type="radio" name="paymentMethod" value="BankTransfer" class="hidden" onchange="selectPaymentMethod('BankTransfer')">
+                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-500 flex items-center justify-center font-bold text-sm mb-2">IBAN</div>
+                            <span class="font-semibold text-white text-sm">Bank Transfer</span>
+                            <span class="text-[11px] text-gray-400 mt-0.5">Direct IBAN</span>
+                        </label>
+                    </div>
+
+                    <!-- Dynamic Payment Instructions Box -->
+                    <div id="paymentInstructionsBox" class="hidden bg-dark border border-tealAccent/30 p-4 rounded-2xl text-xs text-gray-300 space-y-2">
+                        <div class="flex items-center space-x-2 text-tealLight font-semibold">
+                            <i class="fa-solid fa-circle-info"></i>
+                            <span id="instructionTitle">Payment Instructions</span>
+                        </div>
+                        <p id="instructionText" class="text-gray-400 leading-relaxed"></p>
+                        <div class="pt-2">
+                            <label class="block text-gray-400 mb-1">Enter Transaction ID (TID) / Reference Number after payment *</label>
+                            <input type="text" id="paymentTid" placeholder="e.g. TID482910398" class="w-full bg-surface border border-gray-800 rounded-xl px-3 py-2 text-white font-mono text-xs focus:border-tealAccent outline-none">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Summary Breakdown -->
+                <div class="space-y-3 bg-surface p-6 rounded-2xl border border-gray-800">
+                    <h4 class="text-sm font-bold uppercase tracking-wider text-tealAccent">3. Order Summary</h4>
+                    <div id="checkoutItemsList" class="space-y-2 text-sm divide-y divide-gray-800/40">
+                        <!-- Populated by JS -->
+                    </div>
+                    <div class="pt-3 border-t border-gray-800 space-y-2 text-sm">
+                        <div class="flex justify-between text-gray-400">
+                            <span>Subtotal</span>
+                            <span id="checkoutSubtotal">Rs. 0</span>
+                        </div>
+                        <div class="flex justify-between text-gray-400">
+                            <span>Delivery Fee (Nationwide)</span>
+                            <span class="text-white">Rs. 250</span>
+                        </div>
+                        <div class="flex justify-between text-base font-bold text-white pt-2 border-t border-gray-800">
+                            <span>Total Payable</span>
+                            <span id="checkoutTotal" class="text-tealAccent">Rs. 250</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Place Order Button -->
+                <button onclick="handlePlaceOrder()" class="w-full py-4 bg-tealAccent hover:bg-tealHover text-white font-bold rounded-xl shadow-lg shadow-teal-900/30 transition-all flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-lock text-sm"></i>
+                    <span>Place Order Securely</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SUCCESS CONFIRMATION MODAL -->
+    <div id="successModal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-cardDark border border-gray-800 w-full max-w-md rounded-3xl p-8 text-center space-y-6 shadow-2xl">
+            <div class="w-20 h-20 mx-auto rounded-full bg-tealAccent/10 text-tealAccent flex items-center justify-center text-4xl border border-tealAccent/20">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <div class="space-y-2">
+                <h3 class="text-2xl font-bold text-white">Order Placed Successfully!</h3>
+                <p class="text-xs text-gray-400">Thank you for shopping with HypeCartel. Your order ID is <span id="confirmedOrderId" class="text-tealLight font-mono font-bold"></span>.</p>
+            </div>
+            <div class="bg-surface p-4 rounded-2xl text-xs text-gray-400 text-left space-y-1 border border-gray-800">
+                <p><span class="text-white font-medium">Status:</span> Verification Pending</p>
+                <p><span class="text-white font-medium">Payment:</span> Submitted via <span id="confirmedPaymentMethod"></span></p>
+                <p><span class="text-white font-medium">Shipping:</span> Dispatched within 24 hours</p>
+            </div>
+            <button onclick="closeSuccessModal()" class="w-full py-3.5 bg-tealAccent hover:bg-tealHover text-white font-semibold rounded-xl transition-all">
+                Continue Shopping
+            </button>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-cardDark border-t border-gray-800 pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
+                
+                <!-- Col 1: Brand -->
+                <div class="lg:col-span-2 space-y-4">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-9 h-9 rounded-xl bg-tealAccent flex items-center justify-center text-white font-bold text-lg">
+                            H
+                        </div>
+                        <span class="text-xl font-bold text-white">Hype<span class="text-tealAccent">Cartel</span></span>
+                    </div>
+                    <p class="text-gray-400 text-sm max-w-sm leading-relaxed">
+                        Your trusted destination for premium trending finds, smart gadgets, and everyday essentials delivered across Pakistan.
+                    </p>
+                    <div class="flex items-center space-x-3 pt-2 text-gray-400">
+                        <a href="#" class="w-10 h-10 rounded-xl bg-surface border border-gray-800 flex items-center justify-center hover:text-tealAccent transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-xl bg-surface border border-gray-800 flex items-center justify-center hover:text-tealAccent transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-xl bg-surface border border-gray-800 flex items-center justify-center hover:text-tealAccent transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div class="space-y-4">
+                    <h4 class="font-bold text-white text-sm uppercase tracking-wider">Quick Links</h4>
+                    <ul class="space-y-2.5 text-sm text-gray-400">
+                        <li><a href="#home" class="hover:text-tealAccent transition-colors">Home</a></li>
+                        <li><a href="#shop" class="hover:text-tealAccent transition-colors">Shop Catalog</a></li>
+                        <li><a href="#categories" class="hover:text-tealAccent transition-colors">Categories</a></li>
+                        <li><a href="#trending" class="hover:text-tealAccent transition-colors">Trending Now</a></li>
+                        <li><a href="#about" class="hover:text-tealAccent transition-colors">About Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Customer Care -->
+                <div class="space-y-4">
+                    <h4 class="font-bold text-white text-sm uppercase tracking-wider">Policies</h4>
+                    <ul class="space-y-2.5 text-sm text-gray-400">
+                        <li><a href="#" onclick="showPolicy('privacy')" class="hover:text-tealAccent transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" onclick="showPolicy('terms')" class="hover:text-tealAccent transition-colors">Terms & Conditions</a></li>
+                        <li><a href="#" onclick="showPolicy('refund')" class="hover:text-tealAccent transition-colors">Refund Policy</a></li>
+                        <li><a href="#" onclick="showPolicy('contact')" class="hover:text-tealAccent transition-colors">Contact Support</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Payments Accepted -->
+                <div class="space-y-4">
+                    <h4 class="font-bold text-white text-sm uppercase tracking-wider">Secure Payments</h4>
+                    <p class="text-xs text-gray-400">We support secure digital transfers across all major Pakistani financial channels.</p>
+                    <div class="flex flex-wrap gap-2 pt-2">
+                        <span class="px-3 py-1.5 bg-surface border border-gray-800 text-[11px] rounded-lg text-gray-300 font-medium">JazzCash</span>
+                        <span class="px-3 py-1.5 bg-surface border border-gray-800 text-[11px] rounded-lg text-gray-300 font-medium">Easypaisa</span>
+                        <span class="px-3 py-1.5 bg-surface border border-gray-800 text-[11px] rounded-lg text-gray-300 font-medium">Bank Transfer</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="border-t border-gray-800/80 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500">
+                <p>&copy; 2026 HypeCartel Pakistan. All rights reserved.</p>
+                <p class="mt-2 sm:mt-0">Designed for modern commerce.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT APP LOGIC -->
+    <script>
+        const products = [
+            {
+                id: 1,
+                name: "Portable Blender Pro",
+                category: "Home & Kitchen",
+                price: 4499,
+                originalPrice: 5999,
+                rating: 4.8,
+                image: "https://placehold.co/400x400/1a1a1a/2dd4bf?text=Portable+Blender",
+                description: "USB rechargeable cordless juice blender with 6 stainless steel blades.",
+                trending: true
+            },
+            {
+                id: 2,
+                name: "LED Desk Lamp with Wireless Charger",
+                category: "Electronics",
+                price: 3899,
+                originalPrice: 4999,
+                rating: 4.9,
+                image: "https://placehold.co/400x400/1a1a1a/2dd4bf?text=LED+Desk+Lamp",
+                description: "Dimmable eye-caring touch lamp with integrated phone charging pad.",
+                trending: true
+            },
+            {
+                id: 3,
+                name: "Multi-Tier Kitchen Organizer",
+                category: "Home & Kitchen",
+                price: 2999,
+                originalPrice: 3800,
+                rating: 4.7,
+                image: "https://placehold.co/400x400/1a1a1a/2dd4bf?text=Kitchen+Organizer",
+                description: "Space-saving rotating spice and condiment rack for modern kitchens.",
+                trending: false
+            },
+            {
+                id: 4,
+                name: "Smart Travel Tech Pouch",
+                category: "Travel",
+                price: 1899,
+                originalPrice: 2500,
+                rating: 4.6,
+                image: "https://placehold.co/400x400/1a1a1a/2dd4bf?text=Travel+Tech+Pouch",
+                description: "Water-resistant organizer case for cables, power banks, and adapters.",
+                trending: false
+            },
+            {
+                id: 5,
+                name: "Wireless Mini Bass Speaker",
+                category: "Electronics",
+                price: 3299,
+                originalPrice: 4200,
+                rating: 4.9,
+                image: "https://placehold.co/400x400/1a1a1a/2dd4bf?text=Mini+Speaker",
+                description: "Compact Bluetooth speaker with deep stereo sound and 12-hour playtime.",
+                trending: true
+            },
+            {
+                id: 6,
+                name: "Car Dash Mount & Qi Charger",
+                category: "Accessories",
+                price: 3499,
+                originalPrice: 4500,
+                rating: 4.8,
+                image: "https://placehold.co/400x400/1a1a1a/2dd4bf?text=Car+Accessories",
+                description: "Automatic clamping smartphone holder with fast wireless charging.",
+                trending: false
+            },
+            {
+                id: 7,
+                name: "Smart Plant Moisture Sensor",
+                category: "Home & Kitchen",
+                price: 1499,
+                originalPrice: 2000,
+                rating: 4.5,
+                image: "https://placehold.co/400x400/1a1a1a/2dd4bf?text=Smart+Home+Gadget",
+                description: "Real-time soil hydration and sunlight monitoring indicator.",
+                trending: false
+            },
+            {
+                id: 8,
+                name: "Sonic Facial Cleansing Device",
+                category: "Lifestyle",
+                price: 2799,
+                originalPrice: 3500,
+                rating: 4.7,
+                image: "https://placehold.co/400x400/1a1a1a/2dd4bf?text=Personal+Care",
+                description: "Silicone waterproof skin scrubber with adjustable pulsation speeds.",
+                trending: true
+            },
+            {
+                id: 9,
+                name: "Ergonomic Laptop Stand",
+                category: "Electronics",
+                price: 2499,
+                originalPrice: 3200,
+                rating: 4.9,
+                image: "https://placehold.co/400x400/1a1a1a/2dd4bf?text=Laptop+Stand",
+                description: "Foldable aluminum adjustable height riser for better posture.",
+                trending: false
+            },
+            {
+                id: 10,
+                name: "Compact Travel Umbrella",
+                category: "Travel",
+                price: 1699,
+                originalPrice: 2200,
+                rating: 4.6,
+                image: "https://placehold.co/400x400/1a1a1a/2dd4bf?text=Travel+Umbrella",
+                description: "Windproof UV-protection automatic pocket umbrella.",
+                trending: false
+            },
+            {
+                id: 11,
+                name: "Magnetic Phone Ring Light",
+                category: "Accessories",
+                price: 1299,
+                originalPrice: 1800,
+                rating: 4.7,
+                image: "https://placehold.co/400x400/1a1a1a/2dd4bf?text=Ring+Light",
+                description: "Rechargeable clip-on LED lighting for selfies and video calls.",
+                trending: true
+            },
+            {
+                id: 12,
+                name: "Minimalist Leather Wallet",
+                category: "Lifestyle",
+                price: 1999,
+                originalPrice: 2600,
+                rating: 4.8,
+                image: "https://placehold.co/400x400/1a1a1a/2dd4bf?text=Leather+Wallet",
+                description: "RFID blocking slim cardholder wallet with cash pocket.",
+                trending: false
+            }
+        ];
+
+        let cart = [];
+        let selectedCategory = 'All';
+        let chosenPaymentMethod = '';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProducts();
+            renderTrending();
+            setupEventListeners();
+        });
+
+        function setupEventListeners() {
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Cart Drawer Toggles
+            const cartToggleBtn = document.getElementById('cartToggleBtn');
+            const closeCartBtn = document.getElementById('closeCartBtn');
+            const cartOverlay = document.getElementById('cartOverlay');
+            
+            cartToggleBtn.addEventListener('click', openCartDrawer);
+            closeCartBtn.addEventListener('click', closeCartDrawer);
+            cartOverlay.addEventListener('click', closeCartDrawer);
+
+            // Search Filter
+            const searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('input', (e) => {
+                const query = e.target.value.toLowerCase();
+                renderProducts(query);
+            });
+        }
+
+        function renderProducts(searchQuery = '') {
+            const grid = document.getElementById('productGrid');
+            let filtered = products;
+
+            if (selectedCategory !== 'All') {
+                filtered = filtered.filter(p => p.category === selectedCategory);
+            }
+
+            if (searchQuery) {
+                filtered = filtered.filter(p => p.name.toLowerCase().includes(searchQuery) || p.description.toLowerCase().includes(searchQuery));
+            }
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full py-12 text-center text-gray-400">
+                        <i class="fa-solid fa-box-open text-4xl mb-3 text-gray-600"></i>
+                        <p class="text-base font-semibold">No products found matching your criteria.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = filtered.map(p => `
+                <div class="group bg-cardDark border border-gray-800 hover:border-tealAccent/40 rounded-3xl p-5 flex flex-col justify-between transition-all duration-300 shadow-lg">
+                    <div>
+                        <div class="relative w-full h-52 bg-surface rounded-2xl overflow-hidden mb-4 border border-gray-800/50">
+                            <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/400x400/1a1a1a/2dd4bf?text=Product'">
+                            <button onclick="toggleWishlist(${p.id})" aria-label="Add to wishlist" class="absolute top-3 right-3 w-9 h-9 bg-dark/80 backdrop-blur-md rounded-full flex items-center justify-center text-gray-300 hover:text-tealAccent transition-colors">
+                                <i class="fa-regular fa-heart text-sm"></i>
+                            </button>
+                            <span class="absolute bottom-3 left-3 bg-dark/80 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-semibold text-tealLight uppercase tracking-wider">${p.category}</span>
+                        </div>
+                        <h3 class="font-bold text-white text-base mb-1 group-hover:text-tealLight transition-colors">${p.name}</h3>
+                        <p class="text-xs text-gray-400 line-clamp-2 mb-4">${p.description}</p>
+                    </div>
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <span class="text-lg font-extrabold text-white">Rs. ${p.price.toLocaleString()}</span>
+                                <span class="text-xs text-gray-500 line-through ml-1.5">Rs. ${p.originalPrice.toLocaleString()}</span>
+                            </div>
+                            <div class="flex items-center space-x-1 text-xs text-amber-400">
+                                <i class="fa-solid fa-star"></i>
+                                <span class="font-semibold text-gray-300">${p.rating}</span>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button onclick="addToCart(${p.id})" class="w-full py-2.5 bg-tealAccent hover:bg-tealHover text-white text-xs font-semibold rounded-xl transition-all shadow-md shadow-teal-900/20 flex items-center justify-center space-x-1.5">
+                                <i class="fa-solid fa-cart-plus"></i>
+                                <span>Add to Cart</span>
+                            </button>
+                            <button onclick="quickView(${p.id})" class="w-full py-2.5 bg-surface hover:bg-gray-800 border border-gray-800 text-gray-300 text-xs font-semibold rounded-xl transition-all">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderTrending() {
+            const grid = document.getElementById('trendingGrid');
+            const trendingItems = products.filter(p => p.trending).slice(0, 3);
+
+            grid.innerHTML = trendingItems.map(p => `
+                <div class="group relative bg-cardDark border border-gray-800 hover:border-tealAccent/40 rounded-3xl overflow-hidden p-6 flex flex-col justify-between transition-all duration-300 shadow-xl">
+                    <div class="relative h-60 bg-surface rounded-2xl overflow-hidden mb-6 border border-gray-800/50">
+                        <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 left-3 bg-tealAccent text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Trending</span>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-white text-lg mb-1">${p.name}</h3>
+                        <p class="text-xs text-gray-400 mb-4">${p.description}</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xl font-extrabold text-tealLight">Rs. ${p.price.toLocaleString()}</span>
+                            <button onclick="addToCart(${p.id})" class="px-5 py-2.5 bg-tealAccent hover:bg-tealHover text-white text-xs font-semibold rounded-xl transition-all shadow-md shadow-teal-900/20">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filterByCategory(cat) {
+            selectedCategory = cat;
+            
+            // Update active state on buttons
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                if (btn.textContent.includes(cat) || (cat === 'All' && btn.textContent.includes('All'))) {
+                    btn.className = "category-btn px-4 py-2 bg-tealAccent text-white rounded-xl text-xs font-semibold transition-all shadow-sm";
+                } else {
+                    btn.className = "category-btn px-4 py-2 bg-surface hover:bg-gray-800 text-gray-300 rounded-xl text-xs font-semibold transition-all border border-gray-800";
+                }
+            });
+
+            renderProducts();
+            
+            // Scroll to shop section smoothly if clicked from category cards
+            if(cat !== 'All') {
+                document.getElementById('shop').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            const existing = cart.find(item => item.id === productId);
+
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+
+            updateCartUI();
+            openCartDrawer();
+        }
+
+        function updateQuantity(productId, delta) {
+            const item = cart.find(i => i.id === productId);
+            if (item) {
+                item.quantity += delta;
+                if (item.quantity <= 0) {
+                    cart = cart.filter(i => i.id !== productId);
+                }
+            }
+            updateCartUI();
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(i => i.id !== productId);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+            document.getElementById('cartCountBadge').textContent = totalCount;
+            document.getElementById('drawerItemCount').textContent = totalCount;
+            document.getElementById('cartSubtotal').textContent = `Rs. ${subtotal.toLocaleString()}`;
+            document.getElementById('cartTotal').textContent = `Rs. ${subtotal.toLocaleString()}`;
+
+            const container = document.getElementById('cartItemsContainer');
+
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="py-16 text-center text-gray-500">
+                        <i class="fa-solid fa-bag-shopping text-4xl mb-3 text-gray-700"></i>
+                        <p class="text-sm font-semibold">Your cart is currently empty.</p>
+                        <p class="text-xs text-gray-600 mt-1">Explore our shop and add your favorite items.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = cart.map(item => `
+                <div class="py-4 flex items-center justify-between space-x-4">
+                    <img src="${item.image}" alt="${item.name}" class="w-16 h-16 rounded-xl object-cover bg-surface border border-gray-800">
+                    <div class="flex-1 min-w-0">
+                        <h4 class="font-semibold text-white text-sm truncate">${item.name}</h4>
+                        <p class="text-xs text-tealLight font-bold mt-0.5">Rs. ${item.price.toLocaleString()}</p>
+                        <div class="flex items-center space-x-3 mt-2">
+                            <button onclick="updateQuantity(${item.id}, -1)" class="w-6 h-6 bg-surface hover:bg-gray-800 rounded-lg text-gray-300 flex items-center justify-center text-xs border border-gray-800">-</button>
+                            <span class="text-xs font-semibold text-white">${item.quantity}</span>
+                            <button onclick="updateQuantity(${item.id}, 1)" class="w-6 h-6 bg-surface hover:bg-gray-800 rounded-lg text-gray-300 flex items-center justify-center text-xs border border-gray-800">+</button>
+                        </div>
+                    </div>
+                    <button onclick="removeFromCart(${item.id})" class="text-gray-500 hover:text-red-400 p-2 transition-colors">
+                        <i class="fa-solid fa-trash-can text-sm"></i>
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function openCartDrawer() {
+            document.getElementById('cartDrawer').classList.remove('translate-x-full');
+            document.getElementById('cartOverlay').classList.remove('hidden');
+        }
+
+        function closeCartDrawer() {
+            document.getElementById('cartDrawer').classList.add('translate-x-full');
+            document.getElementById('cartOverlay').classList.add('hidden');
+        }
+
+        function toggleWishlist(productId) {
+            const btn = event.currentTarget;
+            const icon = btn.querySelector('i');
+            const countBadge = document.getElementById('wishlistCount');
+            let count = parseInt(countBadge.textContent);
+
+            if (icon.classList.contains('fa-regular')) {
+                icon.classList.remove('fa-regular');
+                icon.classList.add('fa-solid');
+                icon.style.color = '#0d9488';
+                countBadge.textContent = count + 1;
+            } else {
+                icon.classList.remove('fa-solid');
+                icon.classList.add('fa-regular');
+                icon.style.color = '';
+                countBadge.textContent = Math.max(0, count - 1);
+            }
+        }
+
+        function quickView(productId) {
+            const product = products.find(p => p.id === productId);
+            alert(`Product Details:\n\n${product.name}\nPrice: Rs. ${product.price.toLocaleString()}\nCategory: ${product.category}\n\n${product.description}`);
+        }
+
+        function openCheckoutModal() {
+            if (cart.length === 0) {
+                alert('Your cart is empty. Please add items before proceeding.');
+                return;
+            }
+            closeCartDrawer();
+
+            // Populate checkout summary
+            const itemsList = document.getElementById('checkoutItemsList');
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            
+            itemsList.innerHTML = cart.map(item => `
+                <div class="flex justify-between items-center py-1.5 text-xs text-gray-300">
+                    <span class="truncate pr-2">${item.name} × ${item.quantity}</span>
+                    <span class="font-medium text-white">Rs. ${(item.price * item.quantity).toLocaleString()}</span>
+                </div>
+            `).join('');
+
+            document.getElementById('checkoutSubtotal').textContent = `Rs. ${subtotal.toLocaleString()}`;
+            document.getElementById('checkoutTotal').textContent = `Rs. ${(subtotal + 250).toLocaleString()}`;
+
+            document.getElementById('checkoutModal').classList.remove('hidden');
+        }
+
+        function closeCheckoutModal() {
+            document.getElementById('checkoutModal').classList.add('hidden');
+        }
+
+        function selectPaymentMethod(method) {
+            chosenPaymentMethod = method;
+            const box = document.getElementById('paymentInstructionsBox');
+            const title = document.getElementById('instructionTitle');
+            const text = document.getElementById('instructionText');
+
+            box.classList.remove('hidden');
+
+            if (method === 'JazzCash') {
+                title.textContent = 'JazzCash Merchant / Mobile Transfer Instructions';
+                text.textContent = 'Please transfer the exact total amount to our official JazzCash mobile account. Once transferred, enter your Transaction ID (TID) below to verify and dispatch your order.';
+            } else if (method === 'Easypaisa') {
+                title.textContent = 'Easypaisa Mobile Transfer Instructions';
+                text.textContent = 'Please transfer the exact total amount to our official Easypaisa account. Enter your Transaction ID (TID) below upon completion.';
+            } else if (method === 'BankTransfer') {
+                title.textContent = 'Direct Bank Transfer (IBAN) Instructions';
+                text.textContent = 'Transfer funds directly to our corporate bank account via online banking or ATM. Provide the transaction reference number (TID) below.';
+            }
+
+            // Highlight selected card styling
+            document.querySelectorAll('.payment-card').forEach(card => {
+                card.classList.remove('border-tealAccent', 'bg-tealAccent/5');
+                if (card.querySelector(`input[value="${method}"]`)) {
+                    card.classList.add('border-tealAccent', 'bg-tealAccent/5');
+                    card.querySelector('input').checked = true;
+                }
+            });
+        }
+
+        function handlePlaceOrder() {
+            const name = document.getElementById('custName').value.trim();
+            const phone = document.getElementById('custPhone').value.trim();
+            const city = document.getElementById('custCity').value.trim();
+            const address = document.getElementById('custAddress').value.trim();
+            const tid = document.getElementById('paymentTid').value.trim();
+
+            if (!name || !phone || !city || !address) {
+                alert('Please fill in all required customer information fields.');
+                return;
+            }
+
+            if (!chosenPaymentMethod) {
+                alert('Please select a payment method (JazzCash, Easypaisa, or Bank Transfer).');
+                return;
+            }
+
+            if (!tid) {
+                alert('Please enter your Transaction ID (TID) to verify your online payment.');
+                return;
+            }
+
+            // Generate random order ID
+            const orderId = 'HC-' + Math.floor(100000 + Math.random() * 900000);
+
+            // Close checkout modal & show success
+            closeCheckoutModal();
+            document.getElementById('confirmedOrderId').textContent = orderId;
+            document.getElementById('confirmedPaymentMethod').textContent = chosenPaymentMethod;
+            document.getElementById('successModal').classList.remove('hidden');
+
+            // Reset cart
+            cart = [];
+            updateCartUI();
+        }
+
+        function closeSuccessModal() {
+            document.getElementById('successModal').classList.add('hidden');
+        }
+
+        function showPolicy(type) {
+            const titles = {
+                privacy: 'Privacy Policy',
+                terms: 'Terms & Conditions',
+                refund: 'Refund & Return Policy',
+                contact: 'Contact Support'
+            };
+            const contents = {
+                privacy: 'HypeCartel respects your privacy. All customer data collected during checkout is strictly used for order fulfillment and delivery across Pakistan.',
+                terms: 'By placing an order on HypeCartel, you agree to complete online payment verification via JazzCash, Easypaisa, or Bank Transfer prior to dispatch.',
+                refund: 'We offer a 7-day replacement warranty for defective or damaged items received upon delivery. Contact our support team with unboxing proof.',
+                contact: 'Reach out to our support team anytime via WhatsApp or email at support@hypecartel.pk for order updates and assistance.'
+            };
+            alert(`${titles[type]}\n\n${contents[type]}`);
+        }
+    </script>
+</body>
+</html>
