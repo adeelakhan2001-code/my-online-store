@@ -1070,8 +1070,21 @@
     `;
             
             } else if (method === 'BankTransfer') {
-                title.textContent = 'Direct Bank Transfer (IBAN) Instructions';
-                text.textContent = 'Transfer funds directly to our corporate bank account via online banking or ATM. Provide the transaction reference number (TID) below.';
+    title.textContent = 'Bank Transfer Payment Instructions';
+    text.innerHTML = `
+        Please transfer the exact total amount to:
+
+        <br><br>
+        <strong>Bank:</strong> Dubai Islamic Bank
+        <br>
+        <strong>Account Title:</strong> Adeel Ahmed Khan
+        <br>
+        <strong>Account Number:</strong> 0996233001
+
+        <br><br>
+        After completing the payment, enter your bank transaction/reference number below.
+        Your order will be processed after the payment is manually verified.
+    `;
             }
 
             // Highlight selected card styling
