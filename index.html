@@ -1055,8 +1055,20 @@
                 title.textContent = 'JazzCash Merchant / Mobile Transfer Instructions';
                 text.textContent = 'Please transfer the exact total amount to our official JazzCash mobile account. Once transferred, enter your Transaction ID (TID) below to verify and dispatch your order.';
             } else if (method === 'Easypaisa') {
-                title.textContent = 'Easypaisa Mobile Transfer Instructions';
-                text.textContent = 'Please transfer the exact total amount to our official Easypaisa account. Enter your Transaction ID (TID) below upon completion.';
+    title.textContent = 'Easypaisa Payment Instructions';
+    text.innerHTML = `
+        Please transfer the exact total amount to:
+
+        <br><br>
+        <strong>Easypaisa Account Name:</strong> Adeel Ahmed Khan
+        <br>
+        <strong>Easypaisa Mobile Number:</strong> 03012183969
+
+        <br><br>
+        After completing the payment, enter your Transaction ID (TID) below.
+        Your order will be processed after the payment is manually verified.
+    `;
+            }
             } else if (method === 'BankTransfer') {
                 title.textContent = 'Direct Bank Transfer (IBAN) Instructions';
                 text.textContent = 'Transfer funds directly to our corporate bank account via online banking or ATM. Provide the transaction reference number (TID) below.';
