@@ -156,7 +156,12 @@
                         <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-tealAccent/10 rounded-full blur-3xl pointer-events-none"></div>
                         
                         <div class="flex justify-between items-center z-10">
-                            <span class="text-xs uppercase tracking-widest text-tealAccent font-bold">Featured Drop</span>
+<button onclick="featuredDrop()" class="text-xs uppercase tracking-widest text-tealAccent font-bold hover:text-tealLight transition-colors cursor-pointer">
+    Featured Drop
+</button> 
+                            function featuredDrop() {
+    document.getElementById('shop').scrollIntoView({ behavior: 'smooth' });
+}
                             <span class="bg-tealAccent/20 text-tealLight text-xs px-2.5 py-1 rounded-full font-semibold">In Stock</span>
                         </div>
 
@@ -641,8 +646,8 @@
                 id: 1,
                 name: "12-Piece Kitchen Utensil Set",
                 category: "Home & Kitchen",
-                price: 2,499,
-                originalPrice: 2,499,
+                price: 2299,
+originalPrice: 2999,
                 rating: 4.8,
                 image: "https://sc04.alicdn.com/kf/Hd3198375fd5348cc84919ab6af85dbe1y.jpg",
                 description: "12-piece silicone kitchen utensil set with wooden handles. Available in 10 color options.",
