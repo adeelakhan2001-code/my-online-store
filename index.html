@@ -159,9 +159,7 @@
 <button onclick="featuredDrop()" class="text-xs uppercase tracking-widest text-tealAccent font-bold hover:text-tealLight transition-colors cursor-pointer">
     Featured Drop
 </button> 
-                            function featuredDrop() {
-    document.getElementById('shop').scrollIntoView({ behavior: 'smooth' });
-}
+                           
                             <span class="bg-tealAccent/20 text-tealLight text-xs px-2.5 py-1 rounded-full font-semibold">In Stock</span>
                         </div>
 
@@ -175,7 +173,7 @@
                                 <h4 class="font-semibold text-white text-sm">12-Piece Kitchen Utensil Set</h4>
                                 <p class="text-xs text-gray-400">Silicone utensils • Wooden handles</p>
                             </div>
-                            <span class="text-tealLight font-bold text-base">Rs. 1,999</span>
+                           <span class="text-tealLight font-bold text-base">Rs. 2,299</span>
                         </div>
                     </div>
                 </div>
@@ -991,7 +989,7 @@ originalPrice: 2999,
         Your order will be processed after the payment is manually verified.
     `;
             
-
+            }
             // Highlight selected card styling
             document.querySelectorAll('.payment-card').forEach(card => {
                 card.classList.remove('border-tealAccent', 'bg-tealAccent/5');
