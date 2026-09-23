@@ -1318,168 +1318,201 @@
     <!-- JAVASCRIPT -->
     <script>
 
-        const products = [
-            {
-                id: 1,
-                name: "2L Manual Chopper",
-                category: "Home & Kitchen",
-                price: 1299,
-                originalPrice: null,
-                rating: "New",
-                image: "https://placehold.co/600x600/1a1a1a/2dd4bf?text=2L+Manual+Chopper",
-                description: "2L manual kitchen chopper designed for quick and convenient food preparation.",
-                gallery: ["https://placehold.co/600x600/1a1a1a/2dd4bf?text=2L+Manual+Chopper"],
-                trending: true
-            },
-            {
-                id: 2,
-                name: "Spice Jar / Seasoning Set",
-                category: "Home & Kitchen",
-                price: 699,
-                originalPrice: null,
-                rating: "New",
-                image: "https://placehold.co/600x600/1a1a1a/2dd4bf?text=Spice+Jar+Set",
-                description: "Practical spice and seasoning storage set for keeping your kitchen organized.",
-                gallery: ["https://placehold.co/600x600/1a1a1a/2dd4bf?text=Spice+Jar+Set"],
-                trending: true
-            },
-            {
-                id: 3,
-                name: "7-Piece Food Containers",
-                category: "Home & Kitchen",
-                price: 999,
-                originalPrice: null,
-                rating: "New",
-                image: "https://placehold.co/600x600/1a1a1a/2dd4bf?text=7-Piece+Food+Containers",
-                description: "7-piece food storage container set for organized everyday kitchen storage.",
-                gallery: ["https://placehold.co/600x600/1a1a1a/2dd4bf?text=7-Piece+Food+Containers"],
-                trending: false
-            },
-            {
-                id: 4,
-                name: "Digital Kitchen Scale",
-                category: "Home & Kitchen",
-                price: 1999,
-                originalPrice: null,
-                rating: "New",
-                image: "https://placehold.co/600x600/1a1a1a/2dd4bf?text=Digital+Kitchen+Scale",
-                description: "Digital kitchen scale for convenient and accurate everyday food weighing.",
-                gallery: ["https://placehold.co/600x600/1a1a1a/2dd4bf?text=Digital+Kitchen+Scale"],
-                trending: false
-            },
-            {
-                id: 5,
-                name: "Garlic Press",
-                category: "Home & Kitchen",
-                price: 250,
-                originalPrice: null,
-                rating: "New",
-                image: "https://placehold.co/600x600/1a1a1a/2dd4bf?text=Garlic+Press",
-                description: "Compact kitchen garlic press for quick garlic preparation.",
-                gallery: ["https://placehold.co/600x600/1a1a1a/2dd4bf?text=Garlic+Press"],
-                trending: false
-            },
-            {
-                id: 6,
-                name: "2-in-1 Oil Spray Bottle",
-                category: "Home & Kitchen",
-                price: 699,
-                originalPrice: null,
-                rating: "New",
-                image: "https://placehold.co/600x600/1a1a1a/2dd4bf?text=2-in-1+Oil+Spray+Bottle",
-                description: "2-in-1 oil spray bottle for convenient kitchen cooking and food preparation.",
-                gallery: ["https://placehold.co/600x600/1a1a1a/2dd4bf?text=2-in-1+Oil+Spray+Bottle"],
-                trending: false
-            },
-            {
-                id: 7,
-                name: "12-Piece Silicone Cooking Utensil Set",
-                category: "Home & Kitchen",
-                price: 2999,
-                originalPrice: null,
-                rating: "New",
-                image: "https://sc04.alicdn.com/kf/Hd3198375fd5348cc84919ab6af85dbe1y.jpg",
-                description: "12-piece silicone cooking utensil set with wooden handles.",
-                gallery: [
-                    "https://sc04.alicdn.com/kf/Hd3198375fd5348cc84919ab6af85dbe1y.jpg",
-                    "https://sc04.alicdn.com/kf/Hd758fd98a17b4684918721e92a452432r.jpg",
-                    "https://sc04.alicdn.com/kf/Hc6fbf379754d4761abdc4b3095cfedb8V.jpg",
-                    "https://sc04.alicdn.com/kf/H5e14a27bd2bc4d60addf111ee1a28602H.jpg",
-                    "https://sc04.alicdn.com/kf/Hbaa08501453c461b86adb5c34bc004eav.jpg",
-                    "https://sc04.alicdn.com/kf/H8fe965ad85bf406e933a4921e91edff78.jpg"
-                ],
-                colors: [
-                    "https://sc04.alicdn.com/kf/H2461894f2dac4660b12a98485bf50cefx.jpg_250x250.jpg",
-                    "https://sc04.alicdn.com/kf/H309be7ed65e54370a334682f3f986b89H.jpg_250x250.jpg",
-                    "https://sc04.alicdn.com/kf/H8361bc1144824c8d82e02d04447233ec2.jpg_250x250.jpg",
-                    "https://sc04.alicdn.com/kf/He548d1b67dfc4bf1b5a657745ec82f1e2.png_250x250.png",
-                    "https://sc04.alicdn.com/kf/H2a7c2a7de1bc4e7ba44f2a881b7417806.jpg_250x250.jpg",
-                    "https://sc04.alicdn.com/kf/H371abc3d44b64cc6ab46592e4991e2f1e.jpg_250x250.jpg",
-                    "https://sc04.alicdn.com/kf/H0aa05979187f40348efe08ecfccc6cfcs.jpg_250x250.jpg",
-                    "https://sc04.alicdn.com/kf/H3ee37395d5ff4da6b0bf897eeb29a5fco.jpg_250x250.jpg",
-                    "https://sc04.alicdn.com/kf/He547b0f30a3840c0ac24b83196731364Y.jpg_250x250.jpg",
-                    "https://sc04.alicdn.com/kf/H0ff68aab13e94b8495c9cfb8aee56057S.jpg_250x250.jpg"
-                ],
-                trending: true
-            },
-            {
-                id: 8,
-                name: "Kitchen Lemon Squeezer",
-                category: "Home & Kitchen",
-                price: 599,
-                originalPrice: null,
-                rating: "New",
-                image: "https://placehold.co/600x600/1a1a1a/2dd4bf?text=Kitchen+Lemon+Squeezer",
-                description: "Handheld kitchen lemon squeezer for quick and easy juice extraction.",
-                gallery: ["https://placehold.co/600x600/1a1a1a/2dd4bf?text=Kitchen+Lemon+Squeezer"],
-                trending: false
-            },
-            {
-                id: 9,
-                name: "Reusable Silicone Food Covers – 6pc",
-                category: "Home & Kitchen",
-                price: 599,
-                originalPrice: null,
-                rating: "New",
-                image: "https://placehold.co/600x600/1a1a1a/2dd4bf?text=Silicone+Food+Covers",
-                description: "Reusable 6-piece silicone food cover set for convenient everyday food storage.",
-                gallery: ["https://placehold.co/600x600/1a1a1a/2dd4bf?text=Silicone+Food+Covers"],
-                trending: false
-            },
-            {
-                id: 10,
-                name: "USB Rechargeable Juicer Blender – 380ml, 6 Blades",
-                category: "Electronics",
-                price: 2499,
-                originalPrice: null,
-                rating: "New",
-                image: "https://placehold.co/600x600/1a1a1a/2dd4bf?text=USB+Juicer+Blender",
-                description: "380ml portable USB rechargeable mini blender with 6 blades for convenient personal-size drinks.",
-                gallery: ["https://placehold.co/600x600/1a1a1a/2dd4bf?text=USB+Juicer+Blender"],
-                trending: false
-            },
-            {
-    id: 11,
-    name: "Kitchen Sink Sponge Holder",
-    category: "Home & Kitchen",
-    price: 699,
-    originalPrice: null,
-    rating: "New",
+    const products = [
+        {
+            id: 1,
+            name: "2L Manual Chopper",
+            category: "Home & Kitchen",
+            price: 1299,
+            originalPrice: null,
+            rating: "New",
+            image: "https://s.alicdn.com/@sc04/kf/H1f912b6477154b989af95941ceee9d8eP.jpg?avif=close&webp=close",
+            description: "2L manual kitchen chopper designed for quick and convenient food preparation.",
+            gallery: [
+                "https://s.alicdn.com/@sc04/kf/H1f912b6477154b989af95941ceee9d8eP.jpg?avif=close&webp=close",
+                "https://s.alicdn.com/@sc04/kf/H497306ad041446f2af92eab8d8a93887Z.jpg?avif=close&webp=close",
+                "https://s.alicdn.com/@sc04/kf/Ha677606226c94b748134b1db98f0541aF.jpg?avif=close&webp=close",
+                "https://s.alicdn.com/@sc04/kf/H95c38aec3f214d3baabfa3840f752e54q.jpg?avif=close&webp=close",
+                "https://s.alicdn.com/@sc04/kf/H35163325a36148b2a78cb995b1ee8194f.jpg?avif=close&webp=close",
+                "https://s.alicdn.com/@sc04/kf/H92632550a84340018893ed8e5309607c0.jpg?avif=close&webp=close"
+            ],
+            trending: true
+        },
 
-image: "https://s.alicdn.com/@sc04/kf/H6bbc88f655f442218d91f523ea599adex.jpg?avif=close&webp=close",
+        {
+            id: 2,
+            name: "Spice Jar / Seasoning Set",
+            category: "Home & Kitchen",
+            price: 699,
+            originalPrice: null,
+            rating: "New",
+            image: "https://wholesale-city.com/cdn/shop/products/5514888761646001916_1024x1024_2x_20f14d5f-f583-49df-a8d5-ab0f9b2542b2.jpg?v=1689870575&width=823",
+            description: "Practical spice and seasoning storage set for keeping your kitchen organized.",
+            gallery: [
+                "https://wholesale-city.com/cdn/shop/products/5514888761646001916_1024x1024_2x_20f14d5f-f583-49df-a8d5-ab0f9b2542b2.jpg?v=1689870575&width=823",
+                "https://wholesale-city.com/cdn/shop/products/495699343-2025208319_1024x1024_2x_b9d19db7-b8ae-4c6f-96dd-1261e6560a2d.jpg?v=1689870575",
+                "https://wholesale-city.com/cdn/shop/products/a695786398cf8f89be91d2eb7b2aab1c.jpg?v=1689870575&width=1100",
+                "https://wholesale-city.com/cdn/shop/products/e275e6c85f83ad0dda900274103d0a64.jpg?v=1689870575&width=823"
+            ],
+            trending: true
+        },
 
-gallery: [
-    "https://s.alicdn.com/@sc04/kf/H6bbc88f655f442218d91f523ea599adex.jpg?avif=close&webp=close",
-    "https://s.alicdn.com/@sc04/kf/H252c909a0da64e81b9b021446e870768F.jpg?avif=close&webp=close",
-    "https://s.alicdn.com/@sc04/kf/Hd0c6478a23ad4b5ab5e9e9c5650fe0a4B.jpg?avif=close&webp=close",
-    "https://s.alicdn.com/@sc04/kf/H630e81e3037d4f1bb28e3f4f2a3d363aS.jpg?avif=close&webp=close",
-    "https://s.alicdn.com/@sc04/kf/H0f8fa240f434429a8ef3f0e6c5e6797a9.jpg?avif=close&webp=close"
-],
+        {
+            id: 3,
+            name: "7-Piece Food Containers",
+            category: "Home & Kitchen",
+            price: 1,99,
+            originalPrice: null,
+            rating: "New",
+            image: "https://placehold.co/600x600/1a1a1a/2dd4bf?text=7-Piece+Food+Containers",
+            description: "7-piece food storage container set for organized everyday kitchen storage.",
+            gallery: [
+                "https://placehold.co/600x600/1a1a1a/2dd4bf?text=7-Piece+Food+Containers"
+            ],
+            trending: false
+        },
 
-    trending: false
-}
-        ];
+        {
+            id: 4,
+            name: "Digital Kitchen Scale",
+            category: "Home & Kitchen",
+            price: 1999,
+            originalPrice: null,
+            rating: "New",
+            image: "https://placehold.co/600x600/1a1a1a/2dd4bf?text=Digital+Kitchen+Scale",
+            description: "Digital kitchen scale for convenient and accurate everyday food weighing.",
+            gallery: [
+                "https://placehold.co/600x600/1a1a1a/2dd4bf?text=Digital+Kitchen+Scale"
+            ],
+            trending: false
+        },
 
+        {
+            id: 5,
+            name: "Garlic Press",
+            category: "Home & Kitchen",
+            price: 250,
+            originalPrice: null,
+            rating: "New",
+            image: "https://placehold.co/600x600/1a1a1a/2dd4bf?text=Garlic+Press",
+            description: "Compact kitchen garlic press for quick garlic preparation.",
+            gallery: [
+                "https://placehold.co/600x600/1a1a1a/2dd4bf?text=Garlic+Press"
+            ],
+            trending: false
+        },
+
+        {
+            id: 6,
+            name: "2-in-1 Oil Spray Bottle",
+            category: "Home & Kitchen",
+            price: 699,
+            originalPrice: null,
+            rating: "New",
+            image: "https://placehold.co/600x600/1a1a1a/2dd4bf?text=2-in-1+Oil+Spray+Bottle",
+            description: "2-in-1 oil spray bottle for convenient kitchen cooking and food preparation.",
+            gallery: [
+                "https://placehold.co/600x600/1a1a1a/2dd4bf?text=2-in-1+Oil+Spray+Bottle"
+            ],
+            trending: false
+        },
+
+        {
+            id: 7,
+            name: "12-Piece Silicone Cooking Utensil Set",
+            category: "Home & Kitchen",
+            price: 2999,
+            originalPrice: null,
+            rating: "New",
+            image: "https://sc04.alicdn.com/kf/Hd3198375fd5348cc84919ab6af85dbe1y.jpg",
+            description: "12-piece silicone cooking utensil set with wooden handles.",
+            gallery: [
+                "https://sc04.alicdn.com/kf/Hd3198375fd5348cc84919ab6af85dbe1y.jpg",
+                "https://sc04.alicdn.com/kf/Hd758fd98a17b4684918721e92a452432r.jpg",
+                "https://sc04.alicdn.com/kf/Hc6fbf379754d4761abdc4b3095cfedb8V.jpg",
+                "https://sc04.alicdn.com/kf/H5e14a27bd2bc4d60addf111ee1a28602H.jpg",
+                "https://sc04.alicdn.com/kf/Hbaa08501453c461b86adb5c34bc004eav.jpg",
+                "https://sc04.alicdn.com/kf/H8fe965ad85bf406e933a4921e91edff78.jpg"
+            ],
+            colors: [
+                "https://sc04.alicdn.com/kf/H2461894f2dac4660b12a98485bf50cefx.jpg_250x250.jpg",
+                "https://sc04.alicdn.com/kf/H309be7ed65e54370a334682f3f986b89H.jpg_250x250.jpg",
+                "https://sc04.alicdn.com/kf/H8361bc1144824c8d82e02d04447233ec2.jpg_250x250.jpg",
+                "https://sc04.alicdn.com/kf/He548d1b67dfc4bf1b5a657745ec82f1e2.png_250x250.png",
+                "https://sc04.alicdn.com/kf/H2a7c2a7de1bc4e7ba44f2a881b7417806.jpg_250x250.jpg",
+                "https://sc04.alicdn.com/kf/H371abc3d44b64cc6ab46592e4991e2f1e.jpg_250x250.jpg",
+                "https://sc04.alicdn.com/kf/H0aa05979187f40348efe08ecfccc6cfcs.jpg_250x250.jpg",
+                "https://sc04.alicdn.com/kf/H3ee37395d5ff4da6b0bf897eeb29a5fco.jpg_250x250.jpg",
+                "https://sc04.alicdn.com/kf/He547b0f30a3840c0ac24b83196731364Y.jpg_250x250.jpg",
+                "https://sc04.alicdn.com/kf/H0ff68aab13e94b8495c9cfb8aee56057S.jpg_250x250.jpg"
+            ],
+            trending: true
+        },
+
+        {
+            id: 8,
+            name: "Kitchen Lemon Squeezer",
+            category: "Home & Kitchen",
+            price: 599,
+            originalPrice: null,
+            rating: "New",
+            image: "https://placehold.co/600x600/1a1a1a/2dd4bf?text=Kitchen+Lemon+Squeezer",
+            description: "Handheld kitchen lemon squeezer for quick and easy juice extraction.",
+            gallery: [
+                "https://placehold.co/600x600/1a1a1a/2dd4bf?text=Kitchen+Lemon+Squeezer"
+            ],
+            trending: false
+        },
+
+        {
+            id: 9,
+            name: "Reusable Silicone Food Covers – 6pc",
+            category: "Home & Kitchen",
+            price: 599,
+            originalPrice: null,
+            rating: "New",
+            image: "https://placehold.co/600x600/1a1a1a/2dd4bf?text=Silicone+Food+Covers",
+            description: "Reusable 6-piece silicone food cover set for convenient everyday food storage.",
+            gallery: [
+                "https://placehold.co/600x600/1a1a1a/2dd4bf?text=Silicone+Food+Covers"
+            ],
+            trending: false
+        },
+
+        {
+            id: 10,
+            name: "USB Rechargeable Juicer Blender – 380ml, 6 Blades",
+            category: "Electronics",
+            price: 2499,
+            originalPrice: null,
+            rating: "New",
+            image: "https://placehold.co/600x600/1a1a1a/2dd4bf?text=USB+Juicer+Blender",
+            description: "380ml portable USB rechargeable mini blender with 6 blades for convenient personal-size drinks.",
+            gallery: [
+                "https://placehold.co/600x600/1a1a1a/2dd4bf?text=USB+Juicer+Blender"
+            ],
+            trending: false
+        },
+
+        {
+            id: 11,
+            name: "Kitchen Sink Sponge Holder",
+            category: "Home & Kitchen",
+            price: 699,
+            originalPrice: null,
+            rating: "New",
+            image: "https://s.alicdn.com/@sc04/kf/H6bbc88f655f442218d91f523ea599adex.jpg?avif=close&webp=close",
+            description: "Convenient kitchen sink sponge holder for keeping sponges organized and within easy reach.",
+            gallery: [
+                "https://s.alicdn.com/@sc04/kf/H6bbc88f655f442218d91f523ea599adex.jpg?avif=close&webp=close",
+                "https://s.alicdn.com/@sc04/kf/H252c909a0da64e81b9b021446e870768F.jpg?avif=close&webp=close",
+                "https://s.alicdn.com/@sc04/kf/Hd0c6478a23ad4b5ab5e9e9c5650fe0a4B.jpg?avif=close&webp=close",
+                "https://s.alicdn.com/@sc04/kf/H630e81e3037d4f1bb28e3f4f2a3d363aS.jpg?avif=close&webp=close",
+                "https://s.alicdn.com/@sc04/kf/H0f8fa240f434429a8ef3f0e6c5e6797a9.jpg?avif=close&webp=close"
+            ],
+            trending: false
+        }
+    ];
                 let cart = [];
 
         let selectedCategory = 'All';
