@@ -375,31 +375,22 @@
                 <h3 class="font-semibold text-white text-sm group-hover:text-tealLight">Home & Kitchen</h3>
                 <span class="text-[11px] text-gray-500 mt-1 block">Smart Living</span>
             </div>
+<div onclick="filterByCategory('Home Decoration')" class="group cursor-pointer bg-cardDark hover:bg-surface border border-gray-800 hover:border-tealAccent/50 p-6 rounded-2xl text-center transition-all duration-300">
+    <div class="w-12 h-12 mx-auto rounded-xl bg-surface group-hover:bg-tealAccent/10 flex items-center justify-center text-tealAccent text-xl mb-3">
+        <i class="fa-solid fa-palette"></i>
+    </div>
+    <h3 class="font-semibold text-white text-sm group-hover:text-tealLight">Home Decoration</h3>
+    <span class="text-[11px] text-gray-500 mt-1 block">Style & Decor</span>
+</div>
 
-            <div onclick="filterByCategory('Travel')" class="group cursor-pointer bg-cardDark hover:bg-surface border border-gray-800 hover:border-tealAccent/50 p-6 rounded-2xl text-center transition-all duration-300">
-                <div class="w-12 h-12 mx-auto rounded-xl bg-surface group-hover:bg-tealAccent/10 flex items-center justify-center text-tealAccent text-xl mb-3">
-                    <i class="fa-solid fa-plane"></i>
-                </div>
-                <h3 class="font-semibold text-white text-sm group-hover:text-tealLight">Travel</h3>
-                <span class="text-[11px] text-gray-500 mt-1 block">On The Go</span>
-            </div>
-
-            <div onclick="filterByCategory('Lifestyle')" class="group cursor-pointer bg-cardDark hover:bg-surface border border-gray-800 hover:border-tealAccent/50 p-6 rounded-2xl text-center transition-all duration-300">
-                <div class="w-12 h-12 mx-auto rounded-xl bg-surface group-hover:bg-tealAccent/10 flex items-center justify-center text-tealAccent text-xl mb-3">
-                    <i class="fa-solid fa-compass"></i>
-                </div>
-                <h3 class="font-semibold text-white text-sm group-hover:text-tealLight">Lifestyle</h3>
-                <span class="text-[11px] text-gray-500 mt-1 block">Daily Utilities</span>
-            </div>
-
-            <div onclick="filterByCategory('Accessories')" class="group cursor-pointer bg-cardDark hover:bg-surface border border-gray-800 hover:border-tealAccent/50 p-6 rounded-2xl text-center transition-all duration-300">
-                <div class="w-12 h-12 mx-auto rounded-xl bg-surface group-hover:bg-tealAccent/10 flex items-center justify-center text-tealAccent text-xl mb-3">
-                    <i class="fa-solid fa-glasses"></i>
-                </div>
-                <h3 class="font-semibold text-white text-sm group-hover:text-tealLight">Accessories</h3>
-                <span class="text-[11px] text-gray-500 mt-1 block">Add-ons</span>
-            </div>
-
+<div onclick="filterByCategory('Home Products')" class="group cursor-pointer bg-cardDark hover:bg-surface border border-gray-800 hover:border-tealAccent/50 p-6 rounded-2xl text-center transition-all duration-300">
+    <div class="w-12 h-12 mx-auto rounded-xl bg-surface group-hover:bg-tealAccent/10 flex items-center justify-center text-tealAccent text-xl mb-3">
+        <i class="fa-solid fa-box-open"></i>
+    </div>
+    <h3 class="font-semibold text-white text-sm group-hover:text-tealLight">Home Products</h3>
+    <span class="text-[11px] text-gray-500 mt-1 block">Everyday Essentials</span>
+</div>
+            
             <div onclick="filterByCategory('Trending')" class="group cursor-pointer bg-cardDark hover:bg-surface border border-gray-800 hover:border-tealAccent/50 p-6 rounded-2xl text-center transition-all duration-300">
                 <div class="w-12 h-12 mx-auto rounded-xl bg-surface group-hover:bg-tealAccent/10 flex items-center justify-center text-tealAccent text-xl mb-3">
                     <i class="fa-solid fa-fire"></i>
@@ -442,10 +433,14 @@
                     <button onclick="filterByCategory('Home & Kitchen')" class="category-btn px-4 py-2 bg-surface hover:bg-gray-800 text-gray-300 rounded-xl text-xs font-semibold transition-all border border-gray-800">
                         Home & Kitchen
                     </button>
+<button onclick="filterByCategory('Home Decoration')" class="category-btn px-4 py-2 bg-surface hover:bg-gray-800 text-gray-300 rounded-xl text-xs font-semibold transition-all border border-gray-800">
+    Home Decoration
+</button>
 
-                    <button onclick="filterByCategory('Travel')" class="category-btn px-4 py-2 bg-surface hover:bg-gray-800 text-gray-300 rounded-xl text-xs font-semibold transition-all border border-gray-800">
-                        Travel
-                    </button>
+<button onclick="filterByCategory('Home Products')" class="category-btn px-4 py-2 bg-surface hover:bg-gray-800 text-gray-300 rounded-xl text-xs font-semibold transition-all border border-gray-800">
+    Home Products
+</button>
+                    
 
                 </div>
             </div>
@@ -1482,7 +1477,7 @@
         },
 
         {
-    id: 7,
+    id: 8,
     name: "Kitchen Lemon Squeezer",
     category: "Home & Kitchen",
     price: 599,
@@ -1505,7 +1500,7 @@
        
 
         {
-    id: 8,
+    id: 9,
     name: "USB Rechargeable Juicer Blender – 380ml, 6 Blades",
     category: "Home & Kitchen",
     price: 2499,
@@ -1528,7 +1523,7 @@
 },
 
         {
-            id: 11,
+            id: 10,
             name: "Kitchen Sink Sponge Holder",
             category: "Home & Kitchen",
             price: 699,
