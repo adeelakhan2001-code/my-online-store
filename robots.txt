@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://adeelakhan2001-code.github.io/my-online-store/sitemap.xml
