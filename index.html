@@ -29,8 +29,7 @@
     }
     </script>
 
-    <link rel="preconnect" href="https://cdn.tailwindcss.com">
-    <script src="https://cdn.tailwindcss.com" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <script>
         tailwind.config = {
@@ -55,7 +54,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://sc04.alicdn.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="preload" as="image" href="https://sc04.alicdn.com/kf/Hd3198375fd5348cc84919ab6af85dbe1y.jpg" fetchpriority="high">
 
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -260,8 +259,6 @@
                             <img
                                 src="https://sc04.alicdn.com/kf/Hd3198375fd5348cc84919ab6af85dbe1y.jpg"
                                 alt="12-Piece Kitchen Utensil Set"
-                                width="600"
-                                height="600"
                                 fetchpriority="high"
                                 decoding="async"
                                 class="mx-auto rounded-2xl object-cover shadow-lg border border-gray-800 max-h-56 hover:scale-105 transition-transform duration-500">
@@ -704,8 +701,6 @@
                             id="modalMainImage"
                             src=""
                             alt=""
-                            width="800"
-                            height="800"
                             class="w-full h-full object-contain">
 
                     </div>
@@ -2340,8 +2335,6 @@
                             <img
                                 src="${p.image}"
                                 alt="${p.name}"
-                                width="400"
-                                height="400"
                                 loading="lazy"
                                 decoding="async"
                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
@@ -2459,8 +2452,6 @@
                             <img
                                 src="${p.image}"
                                 alt="${p.name}"
-                                width="400"
-                                height="400"
                                 loading="lazy"
                                 decoding="async"
                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -2531,7 +2522,7 @@
                 thumbnail.type='button';
                 thumbnail.className='h-20 bg-surface border-2 border-gray-800 rounded-xl overflow-hidden hover:border-tealAccent transition-all';
                 if(index===0){thumbnail.classList.remove('border-gray-800');thumbnail.classList.add('border-tealAccent');}
-                thumbnail.innerHTML=`<img src="${image}" alt="${product.name} image ${index+1}" width="400" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover">`;
+                thumbnail.innerHTML=`<img src="${image}" alt="${product.name} image ${index+1}" loading="lazy" decoding="async" class="w-full h-full object-cover">`;
                 thumbnail.addEventListener('click',()=>{
                     mainImage.src=image;
                     thumbnails.querySelectorAll('button').forEach(btn=>{btn.classList.remove('border-tealAccent');btn.classList.add('border-gray-800');});
@@ -2565,7 +2556,7 @@
                 const option=document.createElement('button');
                 option.type='button';
                 option.className='variant-option bg-surface border-2 border-gray-800 rounded-xl p-2 hover:border-tealAccent transition-all text-left';
-                option.innerHTML=`<div class="w-full aspect-square rounded-lg overflow-hidden bg-dark"><img src="${variant.image}" alt="${variant.name}" width="400" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover"></div><div class="text-center mt-2"><span class="text-xs font-semibold text-gray-200">${variant.name}</span></div>`;
+                option.innerHTML=`<div class="w-full aspect-square rounded-lg overflow-hidden bg-dark"><img src="${variant.image}" alt="${variant.name}" loading="lazy" decoding="async" class="w-full h-full object-cover"></div><div class="text-center mt-2"><span class="text-xs font-semibold text-gray-200">${variant.name}</span></div>`;
                 option.addEventListener('click',()=>selectProductVariant(index));
                 container.appendChild(option);
                 const row=document.createElement('div');
@@ -2741,10 +2732,6 @@
                     <img
                         src="${item.image}"
                         alt="${item.name}"
-                        width="64"
-                        height="64"
-                        loading="lazy"
-                        decoding="async"
                         class="w-16 h-16 rounded-xl object-cover bg-surface border border-gray-800">
 
                     <div class="flex-1 min-w-0">
