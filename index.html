@@ -29,9 +29,9 @@
     }
     </script>
 
-    <script src="https://cdn.tailwindcss.com"></script>
-
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
     <script>
+        window.tailwind = window.tailwind || {};
         tailwind.config = {
             theme: {
                 extend: {
@@ -50,11 +50,12 @@
             }
         }
     </script>
+    <script src="https://cdn.tailwindcss.com" defer></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://sc04.alicdn.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="preload" as="image" href="https://sc04.alicdn.com/kf/Hd3198375fd5348cc84919ab6af85dbe1y.jpg" fetchpriority="high">
 
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -94,6 +95,21 @@
             content-visibility: auto;
             contain-intrinsic-size: 800px;
         }
+
+        /* Home & kitchen editorial collection showcase */
+        .collection-showcase { background: linear-gradient(180deg, #171512 0%, #121212 100%); }
+        .collection-tile { position: relative; isolation: isolate; min-height: 340px; overflow: hidden; border: 1px solid rgba(226, 199, 162, .24); border-radius: 24px; background: #24211d; }
+        .collection-tile::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(18,18,18,.94) 0%, rgba(18,18,18,.78) 42%, rgba(18,18,18,.12) 100%); }
+        .collection-tile img { position: absolute; inset: 0 0 0 auto; z-index: -2; width: 64%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+        .collection-tile:hover img { transform: scale(1.045); }
+        .collection-copy { max-width: 65%; padding: clamp(24px, 4vw, 42px); }
+        .collection-eyebrow { color: #e7b99b; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; font-weight: 800; }
+        .collection-title { color: #fff4e7; font-family: Georgia, 'Times New Roman', serif; font-weight: 600; line-height: 1.08; letter-spacing: -.025em; }
+        .collection-description { color: #e0d8ce; max-width: 310px; font-size: 14px; line-height: 1.75; }
+        .collection-link { display: inline-flex; align-items: center; gap: 10px; margin-top: 22px; border-radius: 999px; background: #c87553; color: #1d1713; padding: 12px 18px; font-size: 13px; font-weight: 800; transition: background .2s ease, transform .2s ease; }
+        .collection-link:hover { background: #e19a78; transform: translateY(-1px); }
+        @media (max-width: 640px) { .collection-tile { min-height: 310px; } .collection-tile img { width: 78%; opacity: .78; } .collection-tile::before { background: linear-gradient(90deg, rgba(18,18,18,.96) 0%, rgba(18,18,18,.82) 54%, rgba(18,18,18,.3) 100%); } .collection-copy { max-width: 82%; padding: 24px; } .collection-description { font-size: 13px; } }
+
     </style>
 </head>
 
@@ -197,19 +213,19 @@
 
                     <div class="inline-flex items-center space-x-2 bg-surface border border-gray-800 px-3.5 py-1.5 rounded-full text-xs font-medium text-tealLight">
                         <i class="fa-solid fa-bolt text-tealAccent"></i>
-                        <span>Curated Smart Living & Essentials</span>
+                        <span>Thoughtful Finds for Home & Kitchen</span>
                     </div>
 
                     <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
-                        Shop Useful Products
+                        Make Every Corner Feel
                         <br class="hidden sm:inline">
                         <span class="text-transparent bg-clip-text bg-gradient-to-r from-tealAccent to-tealLight">
-                            Online in Pakistan.
+                            More Like Home.
                         </span>
                     </h1>
 
                     <p class="text-lg text-gray-400 max-w-xl mx-auto lg:mx-0">
-                        Trending finds, everyday essentials, and smart products — carefully selected for you with reliable delivery across Pakistan.
+                        Discover thoughtful home decoration and practical kitchen essentials chosen to bring more comfort, order, and style to everyday living in Pakistan.
                     </p>
 
                     <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4 pt-4">
@@ -259,6 +275,8 @@
                             <img
                                 src="https://sc04.alicdn.com/kf/Hd3198375fd5348cc84919ab6af85dbe1y.jpg"
                                 alt="12-Piece Kitchen Utensil Set"
+                                width="400"
+                                height="400"
                                 fetchpriority="high"
                                 decoding="async"
                                 class="mx-auto rounded-2xl object-cover shadow-lg border border-gray-800 max-h-56 hover:scale-105 transition-transform duration-500">
@@ -290,43 +308,36 @@
         </div>
     </section>
 
-
-    <!-- OFFER -->
-    <section class="py-12 bg-dark border-b border-gray-900">
-
+    <!-- FEATURED HOME & KITCHEN COLLECTIONS -->
+    <section class="collection-showcase py-14 sm:py-20" aria-labelledby="collections-heading">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-            <div class="bg-gradient-to-r from-cardDark via-surface to-cardDark border border-gray-800 rounded-3xl p-8 sm:p-10 flex flex-col lg:flex-row items-center justify-between shadow-xl">
-
-                <div class="space-y-3 text-center lg:text-left mb-6 lg:mb-0">
-
-                    <div class="inline-flex items-center space-x-2 bg-tealAccent/10 px-3 py-1 rounded-full text-xs font-bold text-tealLight">
-                        <i class="fa-solid fa-clock-rotate-left"></i>
-                        <span>Limited Time Offer</span>
+            <div class="text-center max-w-2xl mx-auto mb-9 sm:mb-12">
+                <span class="collection-eyebrow">Thoughtful finds for everyday living</span>
+                <h2 id="collections-heading" class="collection-title text-3xl sm:text-5xl mt-3">A little more lovely. A lot more useful.</h2>
+                <p class="text-sm sm:text-base text-gray-300 mt-4 leading-7">Explore decor that adds personality to your space and kitchen essentials that make everyday tasks easier.</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6">
+                <article class="collection-tile">
+                    <img src="https://s.alicdn.com/@sc04/kf/Hb3e6644436e64fe787a9798281e54e25q.jpg?avif=close&webp=close" alt="Decorative table lamp for a warm, inviting home" width="600" height="700" loading="lazy" decoding="async">
+                    <div class="collection-copy">
+                        <span class="collection-eyebrow">Make it feel like you</span>
+                        <h3 class="collection-title text-3xl sm:text-4xl mt-3">Home<br>Decoration</h3>
+                        <p class="collection-description mt-4">Wall decor, decorative accents, mirrors and clever organizers to bring character and calm to your space.</p>
+                        <button type="button" onclick="filterByCategory('Home Decoration')" class="collection-link">Explore home decor <span aria-hidden="true">→</span></button>
                     </div>
-
-                    <h3 class="text-2xl sm:text-3xl font-extrabold text-white">
-                        Get Extra 10% Off Your First Order
-                    </h3>
-
-                    <p class="text-sm text-gray-400 max-w-lg">
-                        Use code
-                        <span class="text-tealLight font-mono font-bold">HYPE10</span>
-                        at checkout when paying via JazzCash or Easypaisa.
-                    </p>
-                </div>
-
-                <a
-                    href="#shop"
-                    class="px-6 py-3.5 bg-tealAccent hover:bg-tealHover text-white font-semibold rounded-xl text-sm transition-all shadow-lg shadow-teal-900/30 flex items-center space-x-2">
-                    <span>Claim Discount</span>
-                    <i class="fa-solid fa-arrow-right text-xs"></i>
-                </a>
-
+                </article>
+                <article class="collection-tile">
+                    <img src="https://sc04.alicdn.com/kf/Hd3198375fd5348cc84919ab6af85dbe1y.jpg" alt="Silicone cooking utensil set for everyday kitchen use" width="600" height="700" loading="lazy" decoding="async">
+                    <div class="collection-copy">
+                        <span class="collection-eyebrow">Made for everyday moments</span>
+                        <h3 class="collection-title text-3xl sm:text-4xl mt-3">Kitchen<br>Essentials</h3>
+                        <p class="collection-description mt-4">Practical cooking tools, food storage, choppers and handy kitchen helpers for your daily routine.</p>
+                        <button type="button" onclick="filterByCategory('Home & Kitchen')" class="collection-link">Shop kitchen finds <span aria-hidden="true">→</span></button>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
-
 
     <!-- TRUST -->
     <section class="border-b border-gray-900 bg-cardDark/50 py-8">
@@ -388,7 +399,7 @@
             </div>
 
             <p class="text-gray-400 text-sm mt-2 md:mt-0 max-w-md">
-                Browse our curated collections designed for convenience, productivity, and modern lifestyle.
+                Find thoughtful home decoration, useful kitchen essentials, and other everyday favorites in one place.
             </p>
 
         </div>
@@ -701,6 +712,9 @@
                             id="modalMainImage"
                             src=""
                             alt=""
+                            width="600"
+                            height="600"
+                            decoding="async"
                             class="w-full h-full object-contain">
 
                     </div>
@@ -2335,7 +2349,10 @@
                             <img
                                 src="${p.image}"
                                 alt="${p.name}"
+                                width="400"
+                                height="400"
                                 loading="lazy"
+                                fetchpriority="low"
                                 decoding="async"
                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                 onerror="this.src='https://placehold.co/400x400/1a1a1a/2dd4bf?text=Product'">
@@ -2452,7 +2469,10 @@
                             <img
                                 src="${p.image}"
                                 alt="${p.name}"
+                                width="400"
+                                height="400"
                                 loading="lazy"
+                                fetchpriority="low"
                                 decoding="async"
                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
 
@@ -2522,7 +2542,7 @@
                 thumbnail.type='button';
                 thumbnail.className='h-20 bg-surface border-2 border-gray-800 rounded-xl overflow-hidden hover:border-tealAccent transition-all';
                 if(index===0){thumbnail.classList.remove('border-gray-800');thumbnail.classList.add('border-tealAccent');}
-                thumbnail.innerHTML=`<img src="${image}" alt="${product.name} image ${index+1}" loading="lazy" decoding="async" class="w-full h-full object-cover">`;
+                thumbnail.innerHTML=`<img src="${image}" alt="${product.name} image ${index+1}" width="100" height="100" loading="lazy" decoding="async" class="w-full h-full object-cover">`;
                 thumbnail.addEventListener('click',()=>{
                     mainImage.src=image;
                     thumbnails.querySelectorAll('button').forEach(btn=>{btn.classList.remove('border-tealAccent');btn.classList.add('border-gray-800');});
@@ -2556,7 +2576,7 @@
                 const option=document.createElement('button');
                 option.type='button';
                 option.className='variant-option bg-surface border-2 border-gray-800 rounded-xl p-2 hover:border-tealAccent transition-all text-left';
-                option.innerHTML=`<div class="w-full aspect-square rounded-lg overflow-hidden bg-dark"><img src="${variant.image}" alt="${variant.name}" loading="lazy" decoding="async" class="w-full h-full object-cover"></div><div class="text-center mt-2"><span class="text-xs font-semibold text-gray-200">${variant.name}</span></div>`;
+                option.innerHTML=`<div class="w-full aspect-square rounded-lg overflow-hidden bg-dark"><img src="${variant.image}" alt="${variant.name}" width="400" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover"></div><div class="text-center mt-2"><span class="text-xs font-semibold text-gray-200">${variant.name}</span></div>`;
                 option.addEventListener('click',()=>selectProductVariant(index));
                 container.appendChild(option);
                 const row=document.createElement('div');
@@ -2732,6 +2752,10 @@
                     <img
                         src="${item.image}"
                         alt="${item.name}"
+                        width="64"
+                        height="64"
+                        loading="lazy"
+                        decoding="async"
                         class="w-16 h-16 rounded-xl object-cover bg-surface border border-gray-800">
 
                     <div class="flex-1 min-w-0">
@@ -3196,6 +3220,45 @@
             });
 
     </script>
+
+
+
+<style id="hypecartel-premium-warm-redesign">
+:root{color-scheme:dark;--hc-bg:#171614;--hc-panel:#211f1b;--hc-panel-2:#29251f;--hc-cream:#eadcc8;--hc-terracotta:#c77754;--hc-teal:#6bb7a6;--hc-muted:#c2b9ad;}
+html{scroll-behavior:smooth;scroll-padding-top:92px}
+body{background:var(--hc-bg)!important;color:#f7f1e9!important;font-family:Inter,system-ui,sans-serif;letter-spacing:.005em}
+header{background:rgba(23,22,20,.94)!important;border-color:rgba(234,220,200,.13)!important;box-shadow:0 8px 30px rgba(0,0,0,.14)}
+header a,header button{transition:color .2s ease,background-color .2s ease,border-color .2s ease}
+header nav a:hover,.mobile-nav-link:hover{color:var(--hc-cream)!important}
+.bg-dark{background-color:var(--hc-bg)!important}.bg-cardDark{background-color:var(--hc-panel)!important}.bg-surface{background-color:var(--hc-panel-2)!important}
+.text-gray-100,.text-gray-200,.text-gray-300{color:#f1e9de!important}.text-gray-400{color:#c2b9ad!important}.text-gray-500{color:#a99e91!important}
+.text-tealAccent{color:var(--hc-teal)!important}.text-tealLight{color:#a5dfd0!important}.bg-tealAccent{background-color:#347f70!important}.hover\:bg-tealHover:hover{background-color:#28695e!important}
+.border-gray-900,.border-gray-800{border-color:rgba(234,220,200,.14)!important}
+#home{background:radial-gradient(ellipse at 80% 28%,rgba(199,119,84,.15),transparent 36%),radial-gradient(ellipse at 12% 75%,rgba(107,183,166,.10),transparent 34%),var(--hc-bg)!important;border-color:rgba(234,220,200,.14)!important}
+#home h1{letter-spacing:-.045em;line-height:1.08}
+#home h1 .bg-clip-text{background-image:linear-gradient(110deg,var(--hc-cream),var(--hc-terracotta),var(--hc-teal))!important}
+#home .rounded-3xl{border-color:rgba(234,220,200,.18)!important;box-shadow:0 24px 70px rgba(0,0,0,.28)}
+#home a[href="#shop"]{background:#a85f43!important;box-shadow:0 10px 28px rgba(168,95,67,.2)!important}
+#home a[href="#shop"]:hover{background:#bd7354!important}
+#home a[href="#categories"]{border-color:rgba(234,220,200,.25)!important}
+section[id="categories"] .group, .category-btn{border-color:rgba(234,220,200,.16)!important}
+section[id="categories"] .group{background:linear-gradient(145deg,#25221d,#1d1b18)!important;box-shadow:0 8px 24px rgba(0,0,0,.10);transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
+section[id="categories"] .group:hover{transform:translateY(-3px);border-color:rgba(199,119,84,.65)!important;box-shadow:0 14px 32px rgba(0,0,0,.2)}
+#shop,#trending{background:transparent!important}
+#shop .bg-cardDark,#trending .bg-cardDark{background:linear-gradient(145deg,#28241f,#201e1a)!important}
+#shop [class*="rounded-2xl"],#trending [class*="rounded-2xl"]{border-color:rgba(234,220,200,.14)!important}
+#shop img,#trending img{background:#f3eee6;border-radius:14px;object-fit:contain}
+#shop button,#trending button{transition:transform .18s ease,background-color .18s ease,border-color .18s ease}
+#shop button:hover,#trending button:hover{transform:translateY(-1px)}
+#shop h2,#trending h2,#categories h2{letter-spacing:-.035em}
+#shop .category-btn[aria-pressed="true"],#shop .category-btn.active{background:#347f70!important;color:#fff!important}
+#about,footer{background:#201e1a!important;border-color:rgba(234,220,200,.14)!important}
+footer .text-gray-500{color:#b6aa9b!important}
+input,textarea,select{color:#f7f1e9!important}input::placeholder,textarea::placeholder{color:#b5aa9c!important}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(--hc-teal)!important;outline-offset:3px}
+@media(max-width:640px){header .h-20{height:68px}#home{padding-top:2rem!important;padding-bottom:3rem!important}#home h1{font-size:clamp(2.25rem,10vw,3.35rem)!important}#home .grid{gap:2rem!important}#home .rounded-3xl{height:360px!important;padding:1.1rem!important}section[id="categories"]{padding-top:3rem!important;padding-bottom:3rem!important}#shop,#trending{padding-top:3rem!important;padding-bottom:3rem!important}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+</style>
 
 </body>
 </html>
