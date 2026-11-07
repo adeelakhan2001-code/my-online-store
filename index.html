@@ -128,9 +128,9 @@
             .mobile-optimized *,
             .mobile-optimized *::before,
             .mobile-optimized *::after {
-                animation-duration: 0.12s !important;
+                animation-duration: 0.08s !important;
                 animation-iteration-count: 1 !important;
-                transition-duration: 0.12s !important;
+                transition-duration: 0.08s !important;
                 backdrop-filter: none !important;
                 -webkit-backdrop-filter: none !important;
             }
@@ -138,14 +138,23 @@
             .mobile-optimized .shadow-2xl,
             .mobile-optimized .shadow-lg,
             .mobile-optimized .shadow-xl,
-            .mobile-optimized .group:hover {
+            .mobile-optimized .group:hover,
+            .mobile-optimized .bg-dark\/80,
+            .mobile-optimized .bg-surface {
                 box-shadow: none !important;
             }
 
             .mobile-optimized .hover\:scale-105:hover,
             .mobile-optimized .hover\:translate-y-1:hover,
-            .mobile-optimized .group:hover .group-hover\:scale-105 {
+            .mobile-optimized .group:hover .group-hover\:scale-105,
+            .mobile-optimized .group-hover\:scale-105 {
                 transform: none !important;
+            }
+
+            .mobile-optimized .backdrop-blur-md,
+            .mobile-optimized .backdrop-blur-sm {
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
             }
 
             header .max-w-7xl {
@@ -2403,6 +2412,7 @@
         let chosenPaymentMethod = '';
         let currentProduct = null;
         let currentVariantIndex = 0;
+        let mobileVisibleCount = 8;
         document.addEventListener('DOMContentLoaded', () => {
             renderProducts();
             renderTrending();
@@ -2475,7 +2485,11 @@
                 `;
                 return;
             }
-            grid.innerHTML = filtered.map(p => `
+
+            const isMobile = window.matchMedia('(max-width: 768px)').matches;
+            const visibleProducts = isMobile ? filtered.slice(0, mobileVisibleCount) : filtered;
+
+            grid.innerHTML = visibleProducts.map(p => `
                 <div
                     onclick="openProduct(${p.id})"
                     class="group bg-cardDark border border-gray-800 hover:border-tealAccent/40 rounded-3xl p-5 flex flex-col justify-between transition-all duration-300 shadow-lg cursor-pointer">
@@ -2491,6 +2505,7 @@
                                 loading="lazy"
                                 fetchpriority="low"
                                 decoding="async"
+                                sizes="(max-width: 768px) 90vw, 25vw"
                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                 onerror="this.src='https://placehold.co/400x400/1a1a1a/2dd4bf?text=Product'">
 
@@ -2579,6 +2594,18 @@
 
             `).join('');
 
+            if (isMobile && filtered.length > visibleProducts.length) {
+                grid.insertAdjacentHTML('beforeend', `
+                    <div class="col-span-full mt-4">
+                        <button
+                            onclick="mobileVisibleCount += 8; renderProducts(document.getElementById('searchInput').value || document.getElementById('mobileSearchInput').value || '');"
+                            class="w-full py-3 bg-surface border border-gray-800 text-white font-semibold rounded-2xl hover:bg-gray-800 transition-colors">
+                            Load more products
+                        </button>
+                    </div>
+                `);
+            }
+
         }
 
 
@@ -2593,7 +2620,10 @@
                 .slice(0, 3);
 
 
-            grid.innerHTML = trendingItems.map(p => `
+            const isMobile = window.matchMedia('(max-width: 768px)').matches;
+            const visibleTrending = isMobile ? trendingItems.slice(0, 1) : trendingItems;
+
+            grid.innerHTML = visibleTrending.map(p => `
 
                 <div
                     onclick="openProduct(${p.id})"
