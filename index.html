@@ -49,6 +49,10 @@
                 }
             }
         }
+
+        if (window.matchMedia('(max-width: 768px)').matches) {
+            document.documentElement.classList.add('mobile-optimized');
+        }
     </script>
     <script src="https://cdn.tailwindcss.com" defer></script>
 
@@ -108,7 +112,104 @@
         .collection-description { color: #e0d8ce; max-width: 310px; font-size: 14px; line-height: 1.75; }
         .collection-link { display: inline-flex; align-items: center; gap: 10px; margin-top: 22px; border-radius: 999px; background: #c87553; color: #1d1713; padding: 12px 18px; font-size: 13px; font-weight: 800; transition: background .2s ease, transform .2s ease; }
         .collection-link:hover { background: #e19a78; transform: translateY(-1px); }
-        @media (max-width: 640px) { .collection-tile { min-height: 310px; } .collection-tile img { width: 78%; opacity: .78; } .collection-tile::before { background: linear-gradient(90deg, rgba(18,18,18,.96) 0%, rgba(18,18,18,.82) 54%, rgba(18,18,18,.3) 100%); } .collection-copy { max-width: 82%; padding: 24px; } .collection-description { font-size: 13px; } }
+        @media (max-width: 640px) { 
+            .collection-tile { min-height: 310px; } 
+            .collection-tile img { width: 78%; opacity: .78; } 
+            .collection-tile::before { background: linear-gradient(90deg, rgba(18,18,18,.96) 0%, rgba(18,18,18,.82) 54%, rgba(18,18,18,.3) 100%); } 
+            .collection-copy { max-width: 82%; padding: 24px; } 
+            .collection-description { font-size: 13px; } 
+        }
+
+        @media (max-width: 767px) {
+            body {
+                overflow-x: hidden;
+            }
+
+            .mobile-optimized *,
+            .mobile-optimized *::before,
+            .mobile-optimized *::after {
+                animation-duration: 0.12s !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.12s !important;
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+            }
+
+            .mobile-optimized .shadow-2xl,
+            .mobile-optimized .shadow-lg,
+            .mobile-optimized .shadow-xl,
+            .mobile-optimized .group:hover {
+                box-shadow: none !important;
+            }
+
+            .mobile-optimized .hover\:scale-105:hover,
+            .mobile-optimized .hover\:translate-y-1:hover,
+            .mobile-optimized .group:hover .group-hover\:scale-105 {
+                transform: none !important;
+            }
+
+            header .max-w-7xl {
+                padding-left: 0.9rem;
+                padding-right: 0.9rem;
+            }
+
+            .sticky.top-0 {
+                backdrop-filter: blur(12px);
+            }
+
+            #mobileMenu {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            #productGrid,
+            #trendingGrid,
+            .grid-cols-1.md\:grid-cols-3,
+            .grid-cols-1.md\:grid-cols-2 {
+                gap: 1rem;
+            }
+
+            .collection-showcase .collection-title,
+            #collections-heading {
+                font-size: clamp(2rem, 9vw, 3rem);
+                line-height: 1.1;
+            }
+
+            .collection-eyebrow {
+                letter-spacing: 0.12em;
+            }
+
+            .group.bg-cardDark {
+                border-radius: 1.25rem;
+            }
+
+            #productModal .max-w-5xl,
+            #checkoutModal .max-w-2xl,
+            #successModal .max-w-md {
+                width: min(100%, 100vw - 1rem);
+                max-width: 100%;
+            }
+
+            #cartDrawer {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            #checkoutModal .grid,
+            #checkoutModal .sm\:grid-cols-2,
+            .payment-card {
+                gap: 0.75rem;
+            }
+
+            .payment-card {
+                padding: 0.85rem;
+            }
+
+            .feature-card,
+            .bg-surface.border {
+                border-radius: 1.1rem;
+            }
+        }
 
     </style>
 </head>
@@ -1013,6 +1114,20 @@
                                 class="w-full bg-surface border border-gray-800 rounded-xl px-4 py-3 text-sm text-white focus:border-tealAccent outline-none">
                         </div>
 
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-1 gap-4 mt-4">
+                        <div>
+                            <label class="block text-xs text-gray-400 mb-1">
+                                Email Address *
+                            </label>
+
+                            <input
+                                type="email"
+                                id="custEmail"
+                                placeholder="john@example.com"
+                                class="w-full bg-surface border border-gray-800 rounded-xl px-4 py-3 text-sm text-white focus:border-tealAccent outline-none">
+                        </div>
                     </div>
 
 
@@ -2223,7 +2338,29 @@
     trending: true
 },
 
-
+{
+    id: 38,
+    name: "Waterproof Mattress Protector",
+    category: "Home Essentials",
+    price: 1199,
+    originalPrice: 1599,
+    rating: "New",
+    image: "https://s.alicdn.com/@sc04/kf/Hd92d09bd258f4ebb9193574a7dc0a3a94.jpg",
+    description: "Waterproof mattress protector designed to help protect your mattress from accidental spills, moisture, stains and everyday mess. A practical bedding essential for keeping your mattress cleaner and protected.",
+    gallery: [
+        "https://s.alicdn.com/@sc04/kf/Hd92d09bd258f4ebb9193574a7dc0a3a94.jpg",
+        "https://s.alicdn.com/@sc04/kf/H1f5852e4b8654c0f82add0e08e68a1c2f.jpg",
+        "https://s.alicdn.com/@sc04/kf/H082e59cceed548c0be4c2b35f2e466c1W.jpg",
+        "https://s.alicdn.com/@sc04/kf/He8c9704d5668464cbdd736984bfac054K.png",
+        "https://s.alicdn.com/@sc04/kf/H0dd228db05e042f29418a001015a5218n.png",
+        "https://s.alicdn.com/@sc04/kf/Ha90bb849b28c4f0e8c478a18a6bbd57f0.jpg",
+        "https://scontent.fkhi4-4.fna.fbcdn.net/v/t39.30808-6/801582909_122107704969464378_3836286099373622250_n.jpg?stp=dst-jpg_tt6&cstp=mx1024x1024&ctp=s1024x1024&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGA0ZD2jC_LF0OJm9qJZZtIco0higT0wRhyjSGKBPTBGA_wx6XSJ0O2i4jYHvXxQuwREPWfDhAKdlBCcOf6eQV3&_nc_ohc=a5zBq8BLYfUQ7kNvwGsMaA1&_nc_oc=AdrraoL2b5QNwMHvR7gCzn-DLKUTGM_8GDDfQK1DZrptj2UtLf-jt9S2Er7Anzc-xSQ&_nc_zt=23&_nc_ht=scontent.fkhi4-4.fna&_nc_gid=EUPbVWzqDoi2j_yXRkHcHQ&_nc_ss=7b2a8&oh=00_AQRYwLFWfao9crNhHjzR4yMxzGmgsXkiv7m6VmFbtdGTug&oe=6AEB9D14",
+        "https://s.alicdn.com/@sc04/kf/H22d87fb2cd4e47e7a491fa1a7fc193d8Z.jpg",
+        "https://s.alicdn.com/@sc04/kf/Ae827a83d3ae04fe1a1b9672513260946W.jpg",
+        "https://s.alicdn.com/@sc04/kf/Hc716c83553cb437cb3a10ea36caf5047P.jpg"
+    ],
+    trending: true
+},
 
 
 
@@ -3057,13 +3194,16 @@
 
         /* PLACE ORDER */
 
-        function handlePlaceOrder() {
+        async function handlePlaceOrder() {
 
             const name =
                 document.getElementById('custName').value.trim();
 
             const phone =
                 document.getElementById('custPhone').value.trim();
+
+            const email =
+                document.getElementById('custEmail').value.trim();
 
             const city =
                 document.getElementById('custCity').value.trim();
@@ -3075,10 +3215,10 @@
                 document.getElementById('paymentTid').value.trim();
 
 
-            if (!name || !phone || !city || !address) {
+            if (!name || !phone || !email || !city || !address) {
 
                 alert(
-                    'Please fill in all required customer information fields.'
+                    'Please fill in all required customer information fields including email.'
                 );
 
                 return;
@@ -3108,6 +3248,14 @@
             }
 
 
+            const subtotal =
+                cart.reduce(
+                    (sum, item) => sum + (item.price * item.quantity),
+                    0
+                );
+
+            const totalAmount = subtotal + 250;
+
             const orderId =
                 'HC-' +
                 Math.floor(
@@ -3115,26 +3263,65 @@
                     Math.random() * 900000
                 );
 
+            try {
 
-            closeCheckoutModal();
+                const response = await fetch('http://localhost:3000/api/order', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        orderId,
+                        customer: {
+                            name,
+                            phone,
+                            email,
+                            city,
+                            address
+                        },
+                        paymentMethod: chosenPaymentMethod,
+                        transactionId: tid,
+                        items: cart.map(item => ({
+                            name: item.name,
+                            variantName: item.variantName || '',
+                            quantity: item.quantity,
+                            price: item.price
+                        })),
+                        subtotal,
+                        deliveryFee: 250,
+                        totalAmount
+                    })
+                });
 
+                const result = await response.json();
 
-            document.getElementById('confirmedOrderId').textContent =
-                orderId;
+                if (!response.ok) {
+                    throw new Error(result.message || 'Order email could not be sent.');
+                }
 
-            document.getElementById('confirmedPaymentMethod').textContent =
-                chosenPaymentMethod;
+                closeCheckoutModal();
 
+                document.getElementById('confirmedOrderId').textContent =
+                    orderId;
 
-            document
-                .getElementById('successModal')
-                .classList
-                .remove('hidden');
+                document.getElementById('confirmedPaymentMethod').textContent =
+                    chosenPaymentMethod;
 
+                document
+                    .getElementById('successModal')
+                    .classList
+                    .remove('hidden');
 
-            cart = [];
+                cart = [];
+                updateCartUI();
 
-            updateCartUI();
+            } catch (error) {
+                console.error(error);
+                alert(
+                    error.message ||
+                    'Order could not be submitted. Please start the server and try again.'
+                );
+            }
 
         }
 
