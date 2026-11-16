@@ -2279,7 +2279,9 @@
 
 
     ];
-                let cart = [];
+                const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwPFWhSfyURK51mT6WhksDxZBq7elS56pwpaslN1XXVV26gEFXHtd83Eivv6KNt7mdP/exec';
+
+        let cart = [];
         let selectedCategory = 'All';
         let chosenPaymentMethod = '';
         let currentProduct = null;
@@ -3075,87 +3077,118 @@
 
         /* PLACE ORDER */
 
-        function handlePlaceOrder() {
+        async function handlePlaceOrder() {
 
-            const name =
-                document.getElementById('custName').value.trim();
-
-            const phone =
-                document.getElementById('custPhone').value.trim();
-
-            const city =
-                document.getElementById('custCity').value.trim();
-
-            const address =
-                document.getElementById('custAddress').value.trim();
-
-            const tid =
-                document.getElementById('paymentTid').value.trim();
-
+            const name = document.getElementById('custName').value.trim();
+            const phone = document.getElementById('custPhone').value.trim();
+            const city = document.getElementById('custCity').value.trim();
+            const address = document.getElementById('custAddress').value.trim();
+            const tid = document.getElementById('paymentTid').value.trim();
 
             if (!name || !phone || !city || !address) {
-
-                alert(
-                    'Please fill in all required customer information fields.'
-                );
-
+                alert('Please fill in all required customer information fields.');
                 return;
-
             }
-
 
             if (!chosenPaymentMethod) {
-
-                alert(
-                    'Please select a payment method (JazzCash, Easypaisa, or Bank Transfer).'
-                );
-
+                alert('Please select a payment method (JazzCash, Easypaisa, or Bank Transfer).');
                 return;
-
             }
-
 
             if (!tid) {
-
-                alert(
-                    'Please enter your Transaction ID (TID) to verify your online payment.'
-                );
-
+                alert('Please enter your Transaction ID (TID) to verify your online payment.');
                 return;
-
             }
 
+            if (!cart.length) {
+                alert('Your cart is empty. Please add an item before placing your order.');
+                return;
+            }
 
-            const orderId =
-                'HC-' +
-                Math.floor(
-                    100000 +
-                    Math.random() * 900000
+            const subtotal = cart.reduce(
+                (sum, item) => sum + (Number(item.price) * Number(item.quantity)),
+                0
+            );
+            const grandTotal = subtotal + 250;
+
+            const orderItems = cart.map(item => ({
+                name: item.name,
+                variant: item.variantName || '',
+                quantity: Number(item.quantity),
+                unitPrice: Number(item.price),
+                lineTotal: Number(item.price) * Number(item.quantity)
+            }));
+
+            const submitButton = document.querySelector(
+                '#checkoutModal button[onclick="handlePlaceOrder()"]'
+            );
+            const originalButtonHTML = submitButton ? submitButton.innerHTML : '';
+
+            if (submitButton) {
+                submitButton.disabled = true;
+                submitButton.innerHTML = '<i class="fa-solid fa-spinner fa-spin text-sm"></i><span>Submitting Order...</span>';
+                submitButton.classList.add('opacity-70', 'cursor-not-allowed');
+            }
+
+            try {
+                const formData = new URLSearchParams();
+                formData.set('customerName', name);
+                formData.set('phone', phone);
+                formData.set('city', city);
+                formData.set('address', address);
+                formData.set('items', JSON.stringify(orderItems));
+                formData.set('total', String(grandTotal));
+                formData.set('paymentMethod', chosenPaymentMethod);
+                formData.set('transactionId', tid);
+
+                const response = await fetch(GOOGLE_APPS_SCRIPT_URL, {
+                    method: 'POST',
+                    body: formData,
+                    redirect: 'follow'
+                });
+
+                if (!response.ok) {
+                    throw new Error('The order service returned an HTTP error.');
+                }
+
+                const result = await response.json();
+
+                if (!result || result.success !== true || !result.orderId) {
+                    throw new Error(
+                        result && result.message
+                            ? result.message
+                            : 'The order could not be saved.'
+                    );
+                }
+
+                closeCheckoutModal();
+
+                document.getElementById('confirmedOrderId').textContent = result.orderId;
+                document.getElementById('confirmedPaymentMethod').textContent = chosenPaymentMethod;
+                document.getElementById('successModal').classList.remove('hidden');
+
+                if (result.emailSent === false) {
+                    console.warn('Order saved successfully, but the email notification was not sent.');
+                }
+
+                cart = [];
+                updateCartUI();
+
+            } catch (error) {
+                console.error('HypeCartel order submission error:', error);
+                alert(
+                    'We could not confirm your order submission. Please do not submit repeatedly. ' +
+                    'Contact HypeCartel support with your payment transaction reference so the order can be checked.'
                 );
 
-
-            closeCheckoutModal();
-
-
-            document.getElementById('confirmedOrderId').textContent =
-                orderId;
-
-            document.getElementById('confirmedPaymentMethod').textContent =
-                chosenPaymentMethod;
-
-
-            document
-                .getElementById('successModal')
-                .classList
-                .remove('hidden');
-
-
-            cart = [];
-
-            updateCartUI();
-
+            } finally {
+                if (submitButton) {
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = originalButtonHTML;
+                    submitButton.classList.remove('opacity-70', 'cursor-not-allowed');
+                }
+            }
         }
-
 
         function closeSuccessModal() {
 
