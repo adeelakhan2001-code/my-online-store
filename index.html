@@ -160,6 +160,28 @@
             border-color: #0f766e !important;
         }
 
+        .payment-brand-logo {
+            display: flex;
+            flex: 0 0 84px;
+            width: 84px;
+            height: 44px;
+            align-items: center;
+            justify-content: center;
+            padding: 6px;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            background: #ffffff;
+        }
+
+        .payment-brand-logo img {
+            display: block;
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+        }
+
         @media (max-width: 640px) { .collection-tile { min-height: 310px; } .collection-tile img { width: 78%; opacity: .78; } .collection-tile::before { background: linear-gradient(90deg, rgba(255,255,255,.96) 0%, rgba(255,255,255,.82) 54%, rgba(255,255,255,.3) 100%); } .collection-copy { max-width: 82%; padding: 24px; } .collection-description { font-size: 13px; } .reveal-up { transform: translateY(14px); } }
 
     </style>
@@ -1103,7 +1125,7 @@
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
 
                         <button type="button" class="payment-card cursor-pointer bg-surface border-2 border-gray-200 hover:border-tealAccent p-4 rounded-2xl flex items-center gap-3 text-left transition-all" data-payment-method="JazzCash" aria-pressed="false" onclick="selectPaymentMethod('JazzCash')">
-                            <span class="w-10 h-10 rounded-xl bg-red-500/10 text-red-600 flex items-center justify-center font-bold text-xs">JC</span>
+                            <span class="payment-brand-logo"><img src="https://www.jazzcash.com.pk/assets/svgs/JazzCash-logo-hd-80.svg" alt="JazzCash logo" width="84" height="44" loading="lazy" decoding="async"></span>
                             <span class="min-w-0 flex-1">
                                 <span class="block font-semibold text-gray-900 text-sm">JazzCash</span>
                                 <span class="block text-xs text-gray-500 mt-0.5">Mobile wallet</span>
@@ -1112,7 +1134,7 @@
                         </button>
 
                         <button type="button" class="payment-card cursor-pointer bg-surface border-2 border-gray-200 hover:border-tealAccent p-4 rounded-2xl flex items-center gap-3 text-left transition-all" data-payment-method="Easypaisa" aria-pressed="false" onclick="selectPaymentMethod('Easypaisa')">
-                            <span class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-700 flex items-center justify-center font-bold text-xs">EP</span>
+                            <span class="payment-brand-logo"><img src="https://easypaisa.com.pk/wp-content/themes/easypaisa-child/assets/img/footer_g.png" alt="Easypaisa logo" width="84" height="44" loading="lazy" decoding="async"></span>
                             <span class="min-w-0 flex-1">
                                 <span class="block font-semibold text-gray-900 text-sm">Easypaisa</span>
                                 <span class="block text-xs text-gray-500 mt-0.5">Mobile wallet</span>
@@ -1121,7 +1143,7 @@
                         </button>
 
                         <button type="button" class="payment-card cursor-pointer bg-surface border-2 border-gray-200 hover:border-tealAccent p-4 rounded-2xl flex items-center gap-3 text-left transition-all" data-payment-method="BankTransfer" aria-pressed="false" onclick="selectPaymentMethod('BankTransfer')">
-                            <span class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-700 flex items-center justify-center font-bold text-xs">BT</span>
+                            <span class="payment-brand-logo"><img src="https://www.dibpak.com/wp-content/uploads/2026/04/dib-logo.webp" alt="Dubai Islamic Bank Pakistan logo" width="84" height="44" loading="lazy" decoding="async"></span>
                             <span class="min-w-0 flex-1">
                                 <span class="block font-semibold text-gray-900 text-sm">Bank transfer</span>
                                 <span class="block text-xs text-gray-500 mt-0.5">Direct bank payment</span>
