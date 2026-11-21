@@ -155,6 +155,11 @@
             transform: scale(.98);
         }
 
+        .payment-card[aria-pressed="true"] {
+            background-color: rgba(20, 184, 166, 0.08) !important;
+            border-color: #0f766e !important;
+        }
+
         @media (max-width: 640px) { .collection-tile { min-height: 310px; } .collection-tile img { width: 78%; opacity: .78; } .collection-tile::before { background: linear-gradient(90deg, rgba(255,255,255,.96) 0%, rgba(255,255,255,.82) 54%, rgba(255,255,255,.3) 100%); } .collection-copy { max-width: 82%; padding: 24px; } .collection-description { font-size: 13px; } .reveal-up { transform: translateY(14px); } }
 
     </style>
@@ -1097,114 +1102,35 @@
 
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
 
-                        <label class="payment-card cursor-pointer bg-surface border-2 border-gray-800 hover:border-tealAccent p-4 rounded-2xl flex flex-col items-center text-center transition-all">
-
-                            <input
-                                type="radio"
-                                name="paymentMethod"
-                                value="JazzCash"
-                                class="hidden"
-                                onchange="selectPaymentMethod('JazzCash')">
-
-                            <div class="w-10 h-10 rounded-xl bg-red-500/10 text-red-500 flex items-center justify-center font-bold text-sm mb-2">
-                                JC
-                            </div>
-
-                            <span class="font-semibold text-white text-sm">
-                                JazzCash
+                        <button type="button" class="payment-card cursor-pointer bg-surface border-2 border-gray-200 hover:border-tealAccent p-4 rounded-2xl flex items-center gap-3 text-left transition-all" data-payment-method="JazzCash" aria-pressed="false" onclick="selectPaymentMethod('JazzCash')">
+                            <span class="w-10 h-10 rounded-xl bg-red-500/10 text-red-600 flex items-center justify-center font-bold text-xs">JC</span>
+                            <span class="min-w-0 flex-1">
+                                <span class="block font-semibold text-gray-900 text-sm">JazzCash</span>
+                                <span class="block text-xs text-gray-500 mt-0.5">Mobile wallet</span>
                             </span>
+                            <i class="fa-solid fa-chevron-right text-xs text-gray-400" aria-hidden="true"></i>
+                        </button>
 
-                            <span class="text-[11px] text-gray-400 mt-0.5">
-                                Mobile Wallet
+                        <button type="button" class="payment-card cursor-pointer bg-surface border-2 border-gray-200 hover:border-tealAccent p-4 rounded-2xl flex items-center gap-3 text-left transition-all" data-payment-method="Easypaisa" aria-pressed="false" onclick="selectPaymentMethod('Easypaisa')">
+                            <span class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-700 flex items-center justify-center font-bold text-xs">EP</span>
+                            <span class="min-w-0 flex-1">
+                                <span class="block font-semibold text-gray-900 text-sm">Easypaisa</span>
+                                <span class="block text-xs text-gray-500 mt-0.5">Mobile wallet</span>
                             </span>
+                            <i class="fa-solid fa-chevron-right text-xs text-gray-400" aria-hidden="true"></i>
+                        </button>
 
-                        </label>
-
-
-                        <label class="payment-card cursor-pointer bg-surface border-2 border-gray-800 hover:border-tealAccent p-4 rounded-2xl flex flex-col items-center text-center transition-all">
-
-                            <input
-                                type="radio"
-                                name="paymentMethod"
-                                value="Easypaisa"
-                                class="hidden"
-                                onchange="selectPaymentMethod('Easypaisa')">
-
-                            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center font-bold text-sm mb-2">
-                                EP
-                            </div>
-
-                            <span class="font-semibold text-white text-sm">
-                                Easypaisa
+                        <button type="button" class="payment-card cursor-pointer bg-surface border-2 border-gray-200 hover:border-tealAccent p-4 rounded-2xl flex items-center gap-3 text-left transition-all" data-payment-method="BankTransfer" aria-pressed="false" onclick="selectPaymentMethod('BankTransfer')">
+                            <span class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-700 flex items-center justify-center font-bold text-xs">BT</span>
+                            <span class="min-w-0 flex-1">
+                                <span class="block font-semibold text-gray-900 text-sm">Bank transfer</span>
+                                <span class="block text-xs text-gray-500 mt-0.5">Direct bank payment</span>
                             </span>
-
-                            <span class="text-[11px] text-gray-400 mt-0.5">
-                                Mobile Wallet
-                            </span>
-
-                        </label>
-
-
-                        <label class="payment-card cursor-pointer bg-surface border-2 border-gray-800 hover:border-tealAccent p-4 rounded-2xl flex flex-col items-center text-center transition-all">
-
-                            <input
-                                type="radio"
-                                name="paymentMethod"
-                                value="BankTransfer"
-                                class="hidden"
-                                onchange="selectPaymentMethod('BankTransfer')">
-
-                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-500 flex items-center justify-center font-bold text-sm mb-2">
-                                BT
-                            </div>
-
-                            <span class="font-semibold text-white text-sm">
-                                Bank Transfer
-                            </span>
-
-                            <span class="text-[11px] text-gray-400 mt-0.5">
-                                Direct Bank Payment
-                            </span>
-
-                        </label>
+                            <i class="fa-solid fa-chevron-right text-xs text-gray-400" aria-hidden="true"></i>
+                        </button>
 
                     </div>
 
-
-                    <div
-                        id="paymentInstructionsBox"
-                        class="hidden bg-dark border border-tealAccent/30 p-4 rounded-2xl text-xs text-gray-300 space-y-2">
-
-                        <div class="flex items-center space-x-2 text-tealLight font-semibold">
-
-                            <i class="fa-solid fa-circle-info"></i>
-
-                            <span id="instructionTitle">
-                                Payment Instructions
-                            </span>
-
-                        </div>
-
-                        <p
-                            id="instructionText"
-                            class="text-gray-400 leading-relaxed">
-                        </p>
-
-                        <div class="pt-2">
-
-                            <label class="block text-gray-400 mb-1">
-                                Enter Transaction ID (TID) / Reference Number after payment *
-                            </label>
-
-                            <input
-                                type="text"
-                                id="paymentTid"
-                                placeholder="e.g. TID482910398"
-                                class="w-full bg-surface border border-gray-800 rounded-xl px-3 py-2 text-white font-mono text-xs focus:border-tealAccent outline-none">
-
-                        </div>
-
-                    </div>
 
                 </div>
 
@@ -1257,6 +1183,33 @@
 
                 </button>
 
+            </div>
+        </div>
+    </div>
+
+    <div id="paymentInstructionsBox" class="fixed inset-0 z-[60] hidden flex items-center justify-center bg-black/70 backdrop-blur-sm p-4" role="dialog" aria-modal="true" aria-labelledby="instructionTitle" onclick="if (event.target === this) closePaymentInstructions()">
+        <div class="w-full max-w-md rounded-2xl border border-gray-200 bg-white shadow-2xl overflow-hidden" onclick="event.stopPropagation()">
+            <div class="flex items-start justify-between border-b border-gray-200 p-5 sm:p-6">
+                <div>
+                    <p class="text-[11px] font-bold uppercase tracking-widest text-tealAccent">Payment details</p>
+                    <h3 id="instructionTitle" class="mt-1 text-xl font-bold text-gray-900">Payment method</h3>
+                </div>
+                <button type="button" onclick="closePaymentInstructions()" aria-label="Close payment details" class="ml-4 rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-900">
+                    <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="space-y-5 p-5 sm:p-6">
+                <div class="flex items-center justify-between rounded-xl bg-tealAccent/10 px-4 py-3">
+                    <span class="text-sm font-medium text-gray-700">Amount to pay</span>
+                    <strong id="paymentAmount" class="text-lg font-bold text-tealAccent">Rs. 0</strong>
+                </div>
+                <div id="instructionText" class="rounded-xl border border-gray-200 bg-surface p-4 text-sm leading-6 text-gray-700"></div>
+                <div>
+                    <label for="paymentTid" class="mb-1.5 block text-sm font-semibold text-gray-900">Transaction ID / reference number <span class="text-red-600">*</span></label>
+                    <input type="text" id="paymentTid" placeholder="Enter it after completing payment" autocomplete="off" class="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-sm text-gray-900 placeholder:text-gray-500 focus:border-tealAccent focus:outline-none">
+                    <p class="mt-1.5 text-xs text-gray-500">Your order can be verified after payment is completed.</p>
+                </div>
+                <button type="button" onclick="closePaymentInstructions()" class="w-full rounded-xl bg-tealAccent px-4 py-3 font-semibold text-white transition-colors hover:bg-tealHover">Continue checkout</button>
             </div>
         </div>
     </div>
@@ -3014,97 +2967,43 @@
 
             chosenPaymentMethod = method;
 
+            const paymentDetails = {
+                JazzCash: {
+                    title: 'JazzCash transfer instructions',
+                    content: 'Please transfer the exact total to the official HypeCartel JazzCash account. After payment, enter your transaction ID below so the order can be verified.'
+                },
+                Easypaisa: {
+                    title: 'Easypaisa transfer instructions',
+                    content: '<p class="mb-3">Transfer the exact total to this Easypaisa account:</p><p><strong>Account name:</strong> Adeel Ahmed Khan</p><p><strong>Mobile number:</strong> 03012183969</p><p class="mt-3">After payment, enter your transaction ID below for verification.</p>'
+                },
+                BankTransfer: {
+                    title: 'Bank transfer instructions',
+                    content: '<p class="mb-3">Transfer the exact total to this bank account:</p><p><strong>Bank:</strong> Dubai Islamic Bank</p><p><strong>Account title:</strong> Adeel Ahmed Khan</p><p><strong>Account number:</strong> 0996233001</p><p class="mt-3">After payment, enter your transaction reference below for verification.</p>'
+                }
+            };
+            const details = paymentDetails[method];
+            if (!details) return;
 
-            const box =
-                document.getElementById('paymentInstructionsBox');
+            document.getElementById('instructionTitle').textContent = details.title;
+            document.getElementById('instructionText').innerHTML = details.content;
+            document.getElementById('paymentAmount').textContent = document.getElementById('checkoutTotal').textContent;
 
-            const title =
-                document.getElementById('instructionTitle');
+            document.querySelectorAll('.payment-card').forEach(card => {
+                const selected = card.dataset.paymentMethod === method;
+                card.setAttribute('aria-pressed', String(selected));
+                card.classList.toggle('border-tealAccent', selected);
+                card.classList.toggle('bg-tealAccent/5', selected);
+                card.classList.toggle('border-gray-200', !selected);
+            });
 
-            const text =
-                document.getElementById('instructionText');
+            document.getElementById('paymentInstructionsBox').classList.remove('hidden');
+            document.body.classList.add('modal-open');
 
+        }
 
-            box.classList.remove('hidden');
-
-
-            if (method === 'JazzCash') {
-
-                title.textContent =
-                    'JazzCash Merchant / Mobile Transfer Instructions';
-
-                text.textContent =
-                    'Please transfer the exact total amount to our official JazzCash mobile account. Once transferred, enter your Transaction ID (TID) below to verify and dispatch your order.';
-
-            }
-
-            else if (method === 'Easypaisa') {
-
-                title.textContent =
-                    'Easypaisa Payment Instructions';
-
-                text.innerHTML = `
-                    Please transfer the exact total amount to:
-                    <br><br>
-                    <strong>Easypaisa Account Name:</strong> Adeel Ahmed Khan
-                    <br>
-                    <strong>Easypaisa Mobile Number:</strong> 03012183969
-                    <br><br>
-                    After completing the payment, enter your Transaction ID (TID) below.
-                    Your order will be processed after the payment is manually verified.
-                `;
-
-            }
-
-            else if (method === 'BankTransfer') {
-
-                title.textContent =
-                    'Bank Transfer Payment Instructions';
-
-                text.innerHTML = `
-                    Please transfer the exact total amount to:
-                    <br><br>
-                    <strong>Bank:</strong> Dubai Islamic Bank
-                    <br>
-                    <strong>Account Title:</strong> Adeel Ahmed Khan
-                    <br>
-                    <strong>Account Number:</strong> 0996233001
-                    <br><br>
-                    After completing the payment, enter your bank transaction/reference number below.
-                    Your order will be processed after the payment is manually verified.
-                `;
-
-            }
-
-
-            document
-                .querySelectorAll('.payment-card')
-                .forEach(card => {
-
-                    card.classList.remove(
-                        'border-tealAccent',
-                        'bg-tealAccent/5'
-                    );
-
-
-                    const input =
-                        card.querySelector(
-                            `input[value="${method}"]`
-                        );
-
-
-                    if (input) {
-
-                        card.classList.add(
-                            'border-tealAccent',
-                            'bg-tealAccent/5'
-                        );
-
-                        input.checked = true;
-
-                    }
-
-                });
+        function closePaymentInstructions() {
+            document.getElementById('paymentInstructionsBox').classList.add('hidden');
+            document.body.classList.remove('modal-open');
 
         }
 
@@ -3289,6 +3188,12 @@
 
             if (event.key === 'Escape') {
 
+                const paymentPopup = document.getElementById('paymentInstructionsBox');
+                if (!paymentPopup.classList.contains('hidden')) {
+                    closePaymentInstructions();
+                    return;
+                }
+
                 closeProductModal();
 
                 closeCheckoutModal();
@@ -3318,4 +3223,3 @@
     </script>
 </body>
 </html>
-S
