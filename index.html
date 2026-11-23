@@ -256,13 +256,37 @@
             animation: fresh-finds-spin 24s linear infinite;
         }
 
+        .stock-indicator {
+            position: absolute;
+            z-index: 4;
+            top: 9%;
+            right: 4%;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+        }
+        .stock-dot {
+            width: 8px;
+            height: 8px;
+            flex: 0 0 8px;
+            border-radius: 50%;
+            background: #24a36a;
+            box-shadow: 0 0 0 4px rgba(36, 163, 106, .16);
+            animation: stock-dot-pulse 1.4s ease-in-out infinite;
+        }
+
         @keyframes fresh-finds-spin {
             from { transform: rotate(-10deg); }
             to { transform: rotate(350deg); }
         }
 
+        @keyframes stock-dot-pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: .45; transform: scale(.72); }
+        }
+
         @media (prefers-reduced-motion: reduce) {
-            .hero-drop { animation: none; }
+            .hero-drop, .stock-dot { animation: none; }
         }
 
         .hero-stage > .absolute {
@@ -416,26 +440,55 @@
         }
 
         @media (max-width: 768px) {
-            .hero-layout { grid-template-columns: 1fr; gap: 12px; }
-            .hero-editorial { padding-top: 30px !important; padding-bottom: 34px !important; }
+            .hero-layout { grid-template-columns: 1fr; gap: 8px; }
+            .hero-editorial { padding-top: 22px !important; padding-bottom: 16px !important; }
             .hero-copy { text-align: left !important; }
-            .hero-title { max-width: 560px; font-size: clamp(3.15rem, 13vw, 4.5rem) !important; }
-            .hero-description { max-width: 430px; font-size: .94rem; }
-            .hero-actions { flex-direction: row !important; align-items: center; justify-content: flex-start !important; padding-top: 6px !important; }
-            .hero-primary, .hero-secondary { width: auto !important; min-height: 46px; padding: 12px 20px !important; font-size: 12px; }
-            .hero-stage { min-height: 300px; padding: 12px 4px 0 !important; }
+            .hero-copy > :not([hidden]) ~ :not([hidden]) { margin-top: 12px !important; }
+            .hero-kicker { padding: 6px 10px !important; font-size: 10px !important; white-space: nowrap; }
+            .hero-title { max-width: 560px; font-size: clamp(2.5rem, 11vw, 3rem) !important; line-height: .98 !important; }
+            .hero-description { max-width: 430px; font-size: .86rem; line-height: 1.45; }
+            .hero-actions { flex-direction: row !important; align-items: center; justify-content: flex-start !important; gap: 8px !important; padding-top: 2px !important; }
+            .hero-primary, .hero-secondary { width: auto !important; min-height: 42px; padding: 10px 13px !important; font-size: 11px; }
+            .hero-stage { min-height: 255px; padding: 8px 4px 0 !important; }
+            .hero-stage > div:nth-child(3) { padding-top: 8px !important; padding-bottom: 8px !important; }
             .hero-stage::before { top: 4%; right: 8%; bottom: 5%; left: 17%; border-radius: 48% 48% 8px 8px; }
-            .hero-product img { width: min(74%, 290px); max-height: 260px !important; border-width: 6px !important; border-radius: 18px !important; }
-            .hero-product > div:last-child { width: min(86%, 340px); margin-top: -8px; padding: 12px !important; }
-            .hero-drop { top: 5%; left: 4%; width: 70px; height: 70px; font-size: 8px !important; }
+            .hero-product img { width: min(66%, 220px); max-height: 172px !important; border-width: 4px !important; border-radius: 16px !important; }
+            .hero-stage > div:last-child { width: min(90%, 340px); margin-top: -6px; padding: 10px !important; }
+            .hero-drop { top: 6%; left: 4%; width: 62px; height: 62px; font-size: 8px !important; }
+            .stock-indicator { top: 6%; right: 8%; }
             .collection-copy { max-width: 80%; padding: 24px; }
             .reveal-up { transform: translateY(14px); }
         }
 
         @media (max-width: 400px) {
-            .hero-actions { gap: 8px !important; }
-            .hero-primary, .hero-secondary { padding: 11px 15px !important; font-size: 11px; }
-            .hero-stage { min-height: 270px; }
+            .hero-actions { gap: 6px !important; }
+            .hero-primary, .hero-secondary { padding: 9px 11px !important; font-size: 10px; }
+            .hero-stage { min-height: 245px; }
+        }
+
+        @media (max-width: 360px) {
+            header > div:first-child { padding-left: 12px !important; padding-right: 12px !important; }
+            header > div:first-child > div:first-child { gap: 8px; }
+            header > div:first-child > div:last-child { gap: 8px; }
+            header > div:first-child > div:last-child > :not([hidden]) ~ :not([hidden]) { margin-left: 0; }
+            header > div:first-child > div:first-child > a > span { font-size: 16px !important; }
+            .hero-editorial { padding-top: 12px !important; padding-bottom: 8px !important; }
+            .hero-layout { gap: 2px; }
+            .hero-copy > :not([hidden]) ~ :not([hidden]) { margin-top: 7px !important; }
+            .hero-kicker { padding: 4px 7px !important; font-size: 8px !important; }
+            .hero-title { font-size: 2rem !important; line-height: .96 !important; }
+            .hero-description { font-size: .75rem; line-height: 1.3; }
+            .hero-actions { gap: 5px !important; padding-top: 0 !important; }
+            .hero-primary, .hero-secondary { min-height: 36px; padding: 7px 9px !important; font-size: 9px; }
+            .hero-stage { min-height: 190px; padding: 3px 4px 0 !important; }
+            .hero-stage > div:nth-child(3) { padding-top: 4px !important; padding-bottom: 4px !important; }
+            .hero-product img { width: min(58%, 160px); max-height: 120px !important; border-width: 3px !important; border-radius: 12px !important; }
+            .hero-stage > div:last-child { width: 84%; margin-top: -4px; padding: 7px !important; }
+            .hero-stage > div:last-child h4 { font-size: 10px; }
+            .hero-stage > div:last-child p { font-size: 9px; }
+            .hero-stage > div:last-child > span { font-size: 12px; }
+            .hero-drop { top: 4%; left: 3%; width: 50px; height: 50px; font-size: 6px !important; }
+            .stock-indicator { top: 6%; right: 7%; }
         }
 
     </style>
@@ -447,12 +500,12 @@
     <header class="sticky top-0 z-40 bg-dark/90 backdrop-blur-md border-b border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
 
-            <div class="flex items-center space-x-3">
+                <div class="flex items-center space-x-3 site-brand">
                 <a href="#home" class="flex items-center space-x-2 group">
                     <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-tealAccent to-teal-700 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-teal-900/20 group-hover:scale-105 transition-transform">
                         H
                     </div>
-                    <span class="text-xl sm:text-2xl font-bold tracking-tight text-white">
+                    <span class="text-xl sm:text-2xl font-bold tracking-tight text-white site-brand-name">
                         Hype<span class="text-tealAccent">Cartel</span>
                     </span>
                 </a>
@@ -466,7 +519,7 @@
                 <a href="#about" class="hover:text-tealAccent transition-colors">About</a>
             </nav>
 
-            <div class="flex items-center space-x-4">
+            <div class="flex items-center space-x-4 site-header-actions">
 
                 <div class="hidden lg:flex items-center bg-surface border border-gray-800 rounded-full px-4 py-2 text-sm text-gray-400 focus-within:border-tealAccent transition-colors">
                     <i class="fa-solid fa-magnifying-glass mr-2 text-gray-500"></i>
@@ -559,7 +612,7 @@
                         <a
                             href="#shop"
                             class="w-full sm:w-auto px-8 py-4 bg-tealAccent hover:bg-tealHover text-white font-semibold rounded-xl shadow-lg shadow-teal-900/30 transition-all flex items-center justify-center space-x-2 hero-primary">
-                            <span>Shop Now</span>
+                            <span>Shop the edit</span>
                             <i class="fa-solid fa-arrow-right text-sm"></i>
                         </a>
 
@@ -588,8 +641,9 @@
                                 Fresh finds
                             </button>
 
-                            <span class="bg-tealAccent/20 text-tealLight text-xs px-2.5 py-1 rounded-full font-semibold">
-                                In Stock
+                            <span class="bg-tealAccent/20 text-tealLight text-xs px-2.5 py-1 rounded-full font-semibold stock-indicator">
+                                <span class="stock-dot" aria-hidden="true"></span>
+                                <span>In Stock</span>
                             </span>
                         </div>
 
@@ -3496,3 +3550,5 @@
     </script>
 </body>
 </html>
+
+
